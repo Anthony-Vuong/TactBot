@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TactBot</string>
+    <string name="stop">STOP</string>
+    <string name="b">B</string>
+    <string name="f">F</string>
+    <string name="r">R</string>
+    <string name="connect">Connect</string>
+    <string name="l">L</string>
+</resources>
