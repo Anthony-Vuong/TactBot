@@ -6,4 +6,7 @@
     <string name="r">R</string>
     <string name="connect">Connect</string>
     <string name="l">L</string>
+    <string name="connectedButton">Connected</string>
+    <string name="enable">Enable</string>
+    <string name="enable_nbluetooth">Enable\nBluetooth</string>
 </resources>
