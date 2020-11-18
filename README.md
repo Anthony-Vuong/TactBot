@@ -9,6 +9,7 @@ Updated: 11 - 15 - 2020
 
 
 11/15/2020: MainActivity Updated with Broadcast Receiver
+
 11/17/2020: Discoverable feature implemeneted with second broadcast receiver. Initiated with connect button.
 
 
