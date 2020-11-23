@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
         Switch ctrlBLE = (Switch)findViewById(R.id.enSwitch);
         Button discoveryEnableDisable = (Button) findViewById(R.id.connectButton);
 
+
+
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         ctrlBLE.setOnClickListener(new View.OnClickListener() {
