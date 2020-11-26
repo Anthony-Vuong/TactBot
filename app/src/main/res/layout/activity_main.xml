@@ -76,7 +76,7 @@
         android:text="@string/enable_discovery" />
 
     <Button
-        android:id="@+id/DiscoverDevices"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -85,9 +85,12 @@
         android:layout_marginEnd="23dp"
         android:layout_marginRight="23dp"
         android:layout_marginBottom="583dp"
-        android:text="@string/discover" />
+        android:text="@string/discover"
+        android:onClick="DiscoverDevices"
+        tools:ignore="OnClick" />
 
     <ListView
+        android:id="@+id/deviceListView"
         android:layout_width="107dp"
         android:layout_height="160dp"
         android:layout_alignParentBottom="true"

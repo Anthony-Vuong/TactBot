@@ -1,23 +1,34 @@
 package com.example.tactbot;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     BluetoothAdapter bluetoothAdapter;
     private static final String TAG = "MainActivity";
+    public DevListAdapter newDevListAdapter;
+    public ArrayList<BluetoothDevice> btDevices = new ArrayList<>();
+    ListView newDevices;
 
 
     private final BroadcastReceiver receiver2 = new BroadcastReceiver() {
@@ -49,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private final BroadcastReceiver receiver = new BroadcastReceiver() {
+    private final BroadcastReceiver receiver1 = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action.equals(bluetoothAdapter.ACTION_STATE_CHANGED)) {
@@ -71,13 +82,27 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+    private BroadcastReceiver receiver3 = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            Log.d(TAG, "onReceive: ACTION FOUND");
+            if(action.equals(BluetoothDevice.ACTION_FOUND)){
+                BluetoothDevice dev = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                btDevices.add(dev);
+                Log.d(TAG, "onReceive: " + dev.getName() + " " + dev.getAddress());
+                newDevListAdapter = new DevListAdapter(context, R.layout.dev_adapter_view, btDevices);
+                newDevices.setAdapter(newDevListAdapter);
+            }
+        }
+    };
 
     @Override
     protected void onDestroy() {
         Log.d(TAG, "onDestroy");
         super.onDestroy();
         // Don't forget to unregister the ACTION_FOUND receiver.
-        unregisterReceiver(receiver);
+        unregisterReceiver(receiver1);
     }
 
     @Override
@@ -86,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Switch ctrlBLE = (Switch)findViewById(R.id.enSwitch);
         Button discoveryEnableDisable = (Button) findViewById(R.id.enDiscovery);
+        newDevices = (ListView) findViewById(R.id.deviceListView);
+        btDevices = new ArrayList<>();
 
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -107,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
             bluetoothAdapter.disable();
             IntentFilter intentBLE = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
-            registerReceiver(receiver, intentBLE);
+            registerReceiver(receiver1, intentBLE);
         } else {
             Log.d(TAG, "Enabling BLE");
 
@@ -115,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intentEnableBLE);
 
             IntentFilter intentBLE = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
-            registerReceiver(receiver, intentBLE);
+            registerReceiver(receiver1, intentBLE);
         }
     }
 
@@ -127,7 +154,44 @@ public class MainActivity extends AppCompatActivity {
             startActivity(discoverIntent);
 
             IntentFilter intentfilter = new IntentFilter(BluetoothAdapter.ACTION_SCAN_MODE_CHANGED);
-            registerReceiver(receiver, intentfilter);
+            registerReceiver(receiver1, intentfilter);
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void DiscoverDevices(View view) {
+        Log.d(TAG, "Discover Button: Looking for unpaired devices");
+
+        if(bluetoothAdapter.isDiscovering()){
+            bluetoothAdapter.cancelDiscovery();
+            Log.d(TAG, "Discover Button: Discovery Cancelled");
+
+            CheckBTPermissions();
+
+            bluetoothAdapter.startDiscovery();
+            IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+            registerReceiver(receiver3, discoverDevicesIntent);
+        }
+        if(!bluetoothAdapter.isDiscovering()){
+            CheckBTPermissions();
+            bluetoothAdapter.startDiscovery();
+            IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+            registerReceiver(receiver3, discoverDevicesIntent);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void CheckBTPermissions(){
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
+            int permissionCheck = this.checkSelfPermission("Manifest.permission.ACCESS_FINE_LOCATION");
+            permissionCheck += this.checkSelfPermission("Manifest.permission.ACCESS_COARSE_LOCATION");
+            if(permissionCheck != 0){
+                this.requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1001);
+            }
+        }
+        else{
+            Log.d(TAG, "check BT: Don't need to check permissions.");
+        }
 
     }
 }
