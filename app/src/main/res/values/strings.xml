@@ -9,4 +9,6 @@
     <string name="connectedButton">Connected</string>
     <string name="enable">Enable</string>
     <string name="enable_nbluetooth">Enable\nBluetooth</string>
+    <string name="enable_discovery">Enable Discovery</string>
+    <string name="discover">Discover</string>
 </resources>
