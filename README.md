@@ -13,6 +13,6 @@ Updated: 11 - 26 - 2020
 11/17/2020: Discoverable feature implemeneted with second broadcast receiver. Initiated with connect button.
 
 11/26/2020: Created list view of discoverable devices. Design changed slightly. Will implement
-controls at a later date. HAPPY THANKSGIVING!!!
+controls at a later date. In addition, added ME405 Turret control python files. HAPPY THANKSGIVING!!!
 
 
