@@ -27,10 +27,4 @@ class Rover:
         
     def rightTurn(self):
         #not sure how to do this yet
-        
-
-        
-        
-  
-        
-        
+             

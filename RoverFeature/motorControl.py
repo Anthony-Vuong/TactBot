@@ -10,8 +10,7 @@ class motor:
         self.motor1B = pin2
         self.enableMotor = pin3
         self.setup()
-        
-        
+               
     def setup(self):
         GPIO.setup(self.motor1A,GPIO.OUT)  
         GPIO.setup(self.motor1B,GPIO.OUT)
