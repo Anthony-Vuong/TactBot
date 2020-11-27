@@ -14,6 +14,6 @@ Updated: 11 - 26 - 2020
 
 11/26/2020: Created list view of discoverable devices. Design changed slightly. Will implement
 controls at a later date. In addition, added ME405 Turret control python files and Rover control
-python files. HAPPY THANKSGIVING!!!
+python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 
