@@ -14,6 +14,7 @@ import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.os.Bundle;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -22,7 +23,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     BluetoothAdapter bluetoothAdapter;
     private static final String TAG = "MainActivity";
@@ -97,12 +98,36 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private BroadcastReceiver receiver4 = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+
+            if(action.equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)){
+                BluetoothDevice dev = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                if(dev.getBondState() == BluetoothDevice.BOND_BONDED){
+                    Log.d(TAG, "receiver4: BONDED");
+                }
+                if(dev.getBondState() == BluetoothDevice.BOND_BONDING){
+                    Log.d(TAG, "receiver4: BONDING");
+                }
+                if(dev.getBondState() == BluetoothDevice.BOND_NONE){
+                    Log.d(TAG, "receiver4: NONE");
+                }
+
+            }
+        }
+    };
+
     @Override
     protected void onDestroy() {
         Log.d(TAG, "onDestroy");
         super.onDestroy();
         // Don't forget to unregister the ACTION_FOUND receiver.
         unregisterReceiver(receiver1);
+        unregisterReceiver(receiver2);
+        unregisterReceiver(receiver3);
+        unregisterReceiver(receiver4);
     }
 
     @Override
@@ -114,7 +139,12 @@ public class MainActivity extends AppCompatActivity {
         newDevices = (ListView) findViewById(R.id.deviceListView);
         btDevices = new ArrayList<>();
 
+        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
+        registerReceiver(receiver4, filter);
+
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        newDevices.setOnItemClickListener(MainActivity.this);
 
         ctrlBLE.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,5 +223,21 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "check BT: Don't need to check permissions.");
         }
 
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        bluetoothAdapter.cancelDiscovery();
+        Log.d(TAG, "onItemClick: Device clicked");
+        String devName = btDevices.get(position).getName();
+        String devAddress = btDevices.get(position).getAddress();
+
+        Log.d(TAG, "onItemClick: Device name " + devName);
+        Log.d(TAG, "onItemClick: Device address " + devAddress);
+
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2){
+            Log.d(TAG, "Pairing with: " + devName);
+            btDevices.get(position).createBond();
+        }
     }
 }
