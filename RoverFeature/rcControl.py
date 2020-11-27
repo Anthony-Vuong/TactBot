@@ -1,24 +1,36 @@
 import RPi.GPIO as GPIO
+import motorControl.motor as motor
 from time import sleep
- 
-GPIO.setmode(GPIO.BOARD)
- 
-Motor1A = 16
-Motor1B = 18
-Motor1E = 22
- 
-GPIO.setup(Motor1A,GPIO.OUT)
-GPIO.setup(Motor1B,GPIO.OUT)
-GPIO.setup(Motor1E,GPIO.OUT)
- 
-print "Turning motor on"
-GPIO.output(Motor1A,GPIO.HIGH)
-GPIO.output(Motor1B,GPIO.LOW)
-GPIO.output(Motor1E,GPIO.HIGH)
- 
-sleep(2)
- 
-print "Stopping motor"
-GPIO.output(Motor1E,GPIO.LOW)
- 
-GPIO.cleanup()
+
+class Rover:
+    
+    def __init__(self, motor1, motor2, motor3, motor4):
+        self.leftRearWheel = motor1     
+        self.rightRearWheel = motor2
+        self.leftFrontWheel = motor3     #strictly used for turning
+        self.rightFrontWheel = motor4    #strictly used for turning
+        
+    def forward(self):
+        self.leftRearWheel.counterClockWise()
+        self.rightRearWheel.clockWise()
+        
+    def backWard(self):
+        self.rightRearWheel.counterClockWise()
+        self.leftRearWheel.clockWise()
+    
+    def stop(self):
+        self.rightRearWheel.disable()
+        self.leftRearWheel.disable()
+        
+    def leftTurn(self):
+        #not sure how to do this yet
+        
+    def rightTurn(self):
+        #not sure how to do this yet
+        
+
+        
+        
+  
+        
+        
