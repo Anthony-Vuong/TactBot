@@ -1,4 +1,4 @@
-# TactBot
+# TactBot🤖
 Android Studio project to create an app that uses bluetooth to communicate with a RPI4.
 To access the manifest, main activity, and design file use the following path: App-Src-Main
 
