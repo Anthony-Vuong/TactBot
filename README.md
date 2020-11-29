@@ -16,4 +16,8 @@ Updated: 11 - 26 - 2020
 controls at a later date. In addition, added ME405 Turret control python files and Rover control
 python files. Rover feature 🚗 🚗 given motor controls. HAPPY THANKSGIVING!!!
 
+11/27/2020: Device pairing feature implemented.
+
+11/28/2020: Bluetooth server/client socket class implemented using BluetoothServerSocket and BluetoothSocket classes. Not yet complete.
+
 
