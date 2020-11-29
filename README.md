@@ -20,4 +20,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️11/28/2020: Bluetooth server/client socket class implemented using BluetoothServerSocket and BluetoothSocket classes. Not yet complete.
 
+✔️11/29/2020: ConnectThread subclass in BluetoothConnection source file.
+
+
 
