@@ -16,15 +16,19 @@ class motor:
         GPIO.setup(self.motor1B,GPIO.OUT)
         GPIO.setup(self.enableMotor,GPIO.OUT)
         
-    def clockWise(self):
-        GPIO.output(self.motor1A,GPIO.HIGH)  
+    def clockWise(self, speed):
+        #GPIO.output(self.motor1A,GPIO.HIGH)  
         GPIO.output(self.motor1B,GPIO.LOW)
         GPIO.output(self.enableMotor,GPIO.HIGH)
+        pwm = GPIO.PWM(self.motor1A, 1000)
+        pwm.start(speed)        
         
-    def counterClockWise(self):
-        GPIO.output(self.motor1A,GPIO.LOW)  
-        GPIO.output(self.motor1B,GPIO.HIGH)
+    def counterClockWise(self, speed):
+        #GPIO.output(self.motor1B,GPIO.HIGH)
+        GPIO.output(self.motor1A,GPIO.LOW)    
         GPIO.output(self.enableMotor,GPIO.HIGH)
+        pwm = GPIO.PWM(self.motor1B, 1000)
+        pwm.start(speed) 
         
     def disable(self):
         GPIO.output(self.enableMotor,GPIO.LOW)

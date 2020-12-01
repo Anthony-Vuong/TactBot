@@ -10,21 +10,36 @@ class Rover:
         self.leftFrontWheel = motor3     #strictly used for turning
         self.rightFrontWheel = motor4    #strictly used for turning
         
-    def forward(self):
-        self.leftRearWheel.counterClockWise()
-        self.rightRearWheel.clockWise()
+    def forward(self, duty):
+        if duty < 100 and duty > 0:
+            self.leftRearWheel.counterClockWise(duty)
+            self.rightRearWheel.clockWise(duty)
+        else:
+            print("Speed input not valid")
         
-    def backWard(self):
-        self.rightRearWheel.counterClockWise()
-        self.leftRearWheel.clockWise()
+    def backWard(self, duty):
+        if duty < 100 and duty > 0:
+            self.rightRearWheel.counterClockWise(duty)
+            self.leftRearWheel.clockWise(duty)
+        else:
+            print("Speed input not valid")
     
     def stop(self):
         self.rightRearWheel.disable()
         self.leftRearWheel.disable()
         
-    def leftTurn(self):
+    def speedUp(self, duty):
+        #change the duty cycle to go faster
+    
+    def slowDown(self, duty):
+        #change the duty cycle to go slower
+        
+    def straightenOut(self):
+        #wheel straighten out
+        
+    def leftTurn(self, angle):
         #not sure how to do this yet
         
-    def rightTurn(self):
+    def rightTurn(self, angle):
         #not sure how to do this yet
              
