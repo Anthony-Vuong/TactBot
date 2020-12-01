@@ -2,7 +2,7 @@
 Android Studio project to create an app that uses bluetooth to communicate with a RPI4.
 To access the manifest, main activity, and design file use the following path: App-Src-Main
 
-Author: Anthony Vuong, Pedro Munoz-Rodriguez
+Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
 ⌨️ Current Status: In Development
     
