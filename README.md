@@ -26,5 +26,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️11/30/2020: TurretFeature Motor Control source file updated.
 
+✔️12/01/2020: Ordered V2-8 MEGAPIZEL RPI Camera w/ PAN Tilt HAT and Coral USB Connector
+
 
 
