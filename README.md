@@ -26,7 +26,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️11/30/2020: TurretFeature Motor Control source file updated.
 
-✔️12/01/2020: Updated Rover features with new speed control and motor control functions
+✔️12/01/2020: Updated Rover features with new speed control and motor control functions. BOM Added(see OtherDocuments folder)
 
 
 
