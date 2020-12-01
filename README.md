@@ -22,11 +22,11 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️11/28/2020: Bluetooth server/client socket class implemented using BluetoothServerSocket and BluetoothSocket classes. Not yet complete.
 
-✔️11/29/2020: ConnectThread subclass in BluetoothConnection source file.
+✔️11/29/2020: ConnectThread subclass in BluetoothConnection source file. Ordered V2-8 MEGAPIZEL RPI Camera w/ PAN Tilt HAT and Coral USB Connector
 
 ✔️11/30/2020: TurretFeature Motor Control source file updated.
 
-✔️12/01/2020: Ordered V2-8 MEGAPIZEL RPI Camera w/ PAN Tilt HAT and Coral USB Connector
+✔️12/01/2020: Updated Rover features with new speed control and motor control functions
 
 
 
