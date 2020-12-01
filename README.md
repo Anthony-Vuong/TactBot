@@ -4,7 +4,7 @@ To access the manifest, main activity, and design file use the following path: A
 
 Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
-⌨️ Current Status: In Development
+⌨️ Current Status: In Development 🟡
     
     Updated: 11 - 30 - 2020
 
