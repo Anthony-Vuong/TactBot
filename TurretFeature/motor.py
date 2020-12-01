@@ -1,7 +1,3 @@
-''''@file main.py
-
-    Motor Driver Python File '''
-
 import pyb
 
 ## Motor driver object
@@ -12,51 +8,34 @@ import pyb
 #  @note https://bitbucket.org/avuong04/me405_labs/src/master/LAB_2/
 
 class MotorDriver:
-    ''' Methods and parameters needed to operate motor '''
 
-    def __init__(self, EN_pin, IN1_pin, IN2_pin, timer, direction):
-        ''' Initializes motor driver object with given parameters
-            @param EN_pin enable pin for motor controller
-            @param IN1_pin input signal
-            @param IN2_pin input signal
-            @param timer Used for to regulate PWM signal'''
+    def __init__(self, enable, pin1, pin2, timer):
         print('Creating a motor driver')
-        self.EN_pin = EN_pin
-        self.IN1_pin = IN1_pin
-        self.IN2_pin = IN2_pin
-        self.timer = timer
-        self.direction = direction
-
+        self.pin1 = pyb.Pin(pin1, pyb.Pin.OUT_PP)
+        self.pin2 = pyb.Pin(pin2, pyb.Pin.OUT_PP)
+        self.timer = pyb.Timer(timer, freq = 1000)
+        self.enable = pyb.Pin(enable, pyb.Pin.OUT_PP)
+        
     def enable(self):
-        ''' Set enable pin high, and sets one MD pin low '''
         print('Enabling motor')
-        self.EN_pin.high()
-        if (self.direction == 'CCW'):
-            self.IN2_pin.low()
-        else:
-            self.IN1_pin.low()
-
-
+        self.enable.high()
+       
     def disable(self):
-        ''' Sets enable pin low '''
-        self.EN_pin.low()
-
+        print('Disabling motor')
+        self.enable.low()
 
     def set_duty(self, duty):
-        ''' Control the duty cycle of the motor and direction '''
-        if (self.direction == 'CCW'):
-            self.timer.channel(1, pyb.Timer.PWM, pin=self.IN1_pin).pulse_width_percent(duty)
+        print('Running motor')
+        if duty > 99 or duty < 1:
+            print("Not a valid pulse width percent");
         else:
-            self.timer.channel(2, pyb.Timer.PWM, pin=self.IN2_pin).pulse_width_percent(duty)
+            self.timer.channel(1, pyb.Timer.PWM, pin=self.pin1).pulse_width_percent(duty)
+        
 
 if __name__ == '__main__':
 
-    pin_En = pyb.Pin('PA10', pyb.Pin.OUT_PP)
-    pin_IN1 = pyb.Pin('PB4', pyb.Pin.OUT_PP)
-    pin_IN2 = pyb.Pin('PB5', pyb.Pin.OUT_PP)
-    tim = pyb.Timer(3, freq = 1000)
-
-    testMotor = MotorDriver(pin_En, pin_IN1, pin_IN2, tim, 'CW')
+    
+    testMotor = MotorDriver('PA10', 'PB4', 'PB5', 3)
 
     testMotor.enable()
 
