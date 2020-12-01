@@ -22,5 +22,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️11/29/2020: ConnectThread subclass in BluetoothConnection source file.
 
+✔️11/30/2020: TurretFeature Motor Control source file updated.
+
 
 
