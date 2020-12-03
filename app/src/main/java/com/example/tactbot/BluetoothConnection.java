@@ -9,6 +9,9 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.util.UUID;
 
 public class BluetoothConnection {
@@ -20,6 +23,7 @@ public class BluetoothConnection {
     private AcceptThread insecureAcceptThread;
     private ConnectThread connectThread;
     private BluetoothDevice bluetoothDevice;
+    private ConnectedThread connectedThread;
     private UUID devUUID;
     ProgressDialog progressDialog;
     Context myContext;
@@ -56,7 +60,7 @@ public class BluetoothConnection {
             }
 
             if(skt != null){
-                connected(skt, myDev);
+                connected(skt, bluetoothDevice);
             }
             Log.d(TAG, "End of Accept thread.");
         }
@@ -137,5 +141,85 @@ public class BluetoothConnection {
 
         connectThread = new ConnectThread(device, uuid);
         connectThread.start();
+    }
+
+
+    private class ConnectedThread extends Thread{
+        private final BluetoothSocket bleSkt;
+        private final InputStream inStream;
+        private final OutputStream outStream;
+
+        public ConnectedThread(BluetoothSocket skt){
+            Log.d(TAG, "ConnectedThread: Starting");
+
+            bleSkt = skt;
+            InputStream tempIn = null;
+            OutputStream tempOut = null;
+
+            progressDialog.dismiss();
+
+            try {
+                tempIn = bleSkt.getInputStream();
+                tempOut = bleSkt.getOutputStream();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            inStream = tempIn;
+            outStream = tempOut;
+
+        }
+
+        public void run(){
+            byte[] buffer = new byte[1024];
+
+            int bytes;
+
+            while(true){
+                try {
+                    bytes = inStream.read(buffer);
+                    String incomingMessage = new String(buffer, 0, bytes);
+                    Log.d(TAG, "InputStream: " + incomingMessage);
+                } catch (IOException e) {
+                    Log.d(TAG, "write: Problem reading from input stream");
+                    e.printStackTrace();
+                    break;
+                }
+            }
+        }
+
+        public void write(byte[] bytes){
+            String text = new String(bytes, Charset.defaultCharset());
+            Log.d(TAG, "write: To outputstream: " + text);
+            try {
+                outStream.write(bytes);
+            } catch (IOException e) {
+                Log.d(TAG, "write: Problem writing to output stream");
+                e.printStackTrace();
+            }
+        }
+
+        public void cancel(){
+            try {
+                bleSkt.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    private void connected(BluetoothSocket bleSkt, BluetoothDevice bluetoothDevice) {
+        Log.d(TAG, "connected: cancelling");
+        connectedThread = new ConnectedThread(bleSkt);
+        connectedThread.start();
+    }
+
+    public void write(byte[] out){
+        ConnectedThread conThread;
+
+        Log.d(TAG, "write: writing");
+
+        connectedThread.write(out);
     }
 }

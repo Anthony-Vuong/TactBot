@@ -28,7 +28,10 @@ class motor:
         GPIO.output(self.motor1A,GPIO.LOW)    
         GPIO.output(self.enableMotor,GPIO.HIGH)
         pwm = GPIO.PWM(self.motor1B, 1000)
-        pwm.start(speed) 
+        pwm.start(speed)
+        
+    def changeDuty(self):
+        
         
     def disable(self):
         GPIO.output(self.enableMotor,GPIO.LOW)
