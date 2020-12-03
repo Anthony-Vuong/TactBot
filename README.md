@@ -7,7 +7,7 @@ Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
 ⌨️ Current Status: In Development 🟡
     
-    Updated: 12 - 01 - 2020
+    Updated: 12 - 02 - 2020
 
 
 ✔️11/15/2020: MainActivity Updated with Broadcast Receiver
@@ -27,6 +27,8 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 ✔️11/30/2020: TurretFeature Motor Control source file updated.
 
 ✔️12/01/2020: Updated Rover features with new speed control and motor control functions. BOM Added(see OtherDocuments folder)
+
+✔️12/02/2020: ConnectedThread class created - used after establishing connection. Bluetooth process: acceptThread -> connectThread -> connectedThread
 
 
 
