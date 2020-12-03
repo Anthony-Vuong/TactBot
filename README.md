@@ -28,5 +28,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️12/01/2020: Updated Rover features with new speed control and motor control functions. BOM Added(see OtherDocuments folder)
 
+✔️12/02/2020: ConnectedThread class created - used after establishing connection. Bluetooth process: acceptThread -> connectThread -> connectedThread
+
 
 
