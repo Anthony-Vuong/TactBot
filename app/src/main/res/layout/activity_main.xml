@@ -91,9 +91,48 @@
 
     <ListView
         android:id="@+id/deviceListView"
-        android:layout_width="107dp"
-        android:layout_height="160dp"
+        android:layout_width="385dp"
+        android:layout_height="164dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="351dp" />
+        android:layout_marginBottom="303dp" />
+
+    <Button
+        android:id="@+id/startConnection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="494dp"
+        android:text="Start Connection" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="118dp"
+        android:layout_marginRight="118dp"
+        android:layout_marginBottom="222dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="224dp"
+        android:text="Send" />
+
 
 </RelativeLayout>
