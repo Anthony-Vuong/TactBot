@@ -7,7 +7,7 @@ Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
 ⌨️ Current Status: In Development 🟡
     
-    Updated: 12 - 02 - 2020
+    Updated: 12 - 05 - 2020
 
 
 ✔️11/15/2020: MainActivity Updated with Broadcast Receiver
@@ -32,7 +32,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️12/03/2020: Small features for RoverFeature motor control changed. Turret feature automation implementations and camera setup planning.
 
-✔️12/03/2020: Updates to turret encoder.py and added 2 buttons/1 edit text widgets in app design
+✔️12/05/2020: Updates to turret encoder.py and added 2 buttons/1 edit text widgets in app design
 
 
 
