@@ -31,6 +31,7 @@ public class BluetoothConnection {
     public BluetoothConnection(Context context){
         myContext = context;
         bleAdapter = BluetoothAdapter.getDefaultAdapter();
+        start();
     }
 
     private class AcceptThread extends Thread{

@@ -16,15 +16,27 @@ import android.view.View;
 import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
+    BluetoothConnection bleConnection;
+    Button startConnectionButton;
+    Button sendButton;
+    BluetoothDevice mBTDEVICE;
+    EditText editText;
+
+
+    private static final UUID MY_UUID_INSECURE =
+            UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
     BluetoothAdapter bluetoothAdapter;
     private static final String TAG = "MainActivity";
     public DevListAdapter newDevListAdapter;
@@ -107,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 BluetoothDevice dev = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 if(dev.getBondState() == BluetoothDevice.BOND_BONDED){
                     Log.d(TAG, "receiver4: BONDED");
+                    mBTDEVICE = dev;
                 }
                 if(dev.getBondState() == BluetoothDevice.BOND_BONDING){
                     Log.d(TAG, "receiver4: BONDING");
@@ -134,6 +147,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        startConnectionButton = (Button)findViewById(R.id.startConnection);
+        sendButton = (Button)findViewById(R.id.sendButton);
+        editText = (EditText)findViewById(R.id.editTextTextPersonName);
+
         Switch ctrlBLE = (Switch)findViewById(R.id.enSwitch);
         Button discoveryEnableDisable = (Button) findViewById(R.id.enDiscovery);
         newDevices = (ListView) findViewById(R.id.deviceListView);
@@ -154,6 +172,31 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 controlBluetooth();
             }
         });
+
+        startConnectionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startConnection();
+            }
+        });
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                byte[] bytes = editText.getText().toString().getBytes(Charset.defaultCharset());
+                bleConnection.write(bytes);
+            }
+        });
+    }
+
+    public void startConnection(){
+        startBTConnection(mBTDEVICE, MY_UUID_INSECURE);
+    }
+
+    public void startBTConnection(BluetoothDevice dev, UUID uuid){
+        Log.d(TAG, "startConnect: Initializing RFCOM");
+        bleConnection.startClient(dev, uuid);
+
     }
 
     public void controlBluetooth() {
@@ -238,6 +281,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2){
             Log.d(TAG, "Pairing with: " + devName);
             btDevices.get(position).createBond();
+
+            mBTDEVICE = btDevices.get(position);
+            bleConnection = new BluetoothConnection(MainActivity.this);
         }
     }
 }
