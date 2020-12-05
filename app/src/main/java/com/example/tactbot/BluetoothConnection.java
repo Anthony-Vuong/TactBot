@@ -157,8 +157,12 @@ public class BluetoothConnection {
             InputStream tempIn = null;
             OutputStream tempOut = null;
 
-            progressDialog.dismiss();
-
+            try {
+                progressDialog.dismiss();
+            }catch(NullPointerException e){
+                e.printStackTrace();
+            }
+            
             try {
                 tempIn = bleSkt.getInputStream();
                 tempOut = bleSkt.getOutputStream();
