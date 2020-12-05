@@ -32,5 +32,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️12/03/2020: Small features for RoverFeature motor control changed. Turret feature automation implementations and camera setup planning.
 
+✔️12/03/2020: Updates to turret encoder.py and added 2 buttons/1 edit text widgets in app design
+
 
 
