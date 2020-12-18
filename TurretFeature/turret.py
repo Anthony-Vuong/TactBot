@@ -19,4 +19,10 @@ class Turret:
         
     def rotateVertical(self, position):
         #not sure how to do this
+        
+    def launchPayload(self):
+        #not sure how to do this
+        
+    def recenter(self):
+        #send turret back to center
 
