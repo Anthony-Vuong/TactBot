@@ -1,0 +1,3 @@
+1. Upload App to Phone
+2. Connect to Raspberry Pi
+3. Test Connectivity
