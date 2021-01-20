@@ -38,5 +38,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️12/18/2020: More turret features included in python file
 
+✔️01/19/2021: Connecting RPI to Traxxas RC Car
+
 
 
