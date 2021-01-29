@@ -40,5 +40,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️01/19/2021: Connecting RPI to Traxxas RC Car
 
+✔️01/28/2021: Testing RPI wih bluetooth app to spin motor. Status: Unsuccesful
+
 
 
