@@ -42,5 +42,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️01/28/2021: Testing RPI wih bluetooth app to spin motor. Status: Unsuccesful
 
+✔️01/30/2021: Powering RPI Externally tests. Status: TBD
+
 
 
