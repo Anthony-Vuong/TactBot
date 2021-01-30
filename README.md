@@ -7,7 +7,7 @@ Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
 ⌨️ Current Status: In Development 🟡
     
-    Updated: 12 - 18 - 2020
+    Updated: 01 - 30 - 2021
 
 
 ✔️11/15/2020: MainActivity Updated with Broadcast Receiver
