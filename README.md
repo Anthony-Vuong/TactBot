@@ -44,7 +44,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️01/30/2021: Powering RPI Externally tests. Status: TBD
 
-✔️01/31/2021: Interesting read on Android app connection RPI Follow this [link](https://raspberrypi.stackexchange.com/questions/88214/setting-up-a-raspberry-pi-as-an-access-point-the-easy-way/88234#88234)
+✔️01/31/2021: Interesting read on Android app connection RPI.  Follow this [link](https://raspberrypi.stackexchange.com/questions/88214/setting-up-a-raspberry-pi-as-an-access-point-the-easy-way/88234#88234)
 
 
 
