@@ -6,13 +6,15 @@ programming. To access the manifest, main activity, and design file use the foll
 Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
 Development Status:
+                  
                      App: Testing 🔵
                   
                    Rover: In Development 🟡
                   
                   Turret: On Hold 🔴
     
-    Updated: 01 - 31 - 2021
+    
+   Updated: 01 - 31 - 2021
 
 
 ✔️11/15/2020: MainActivity Updated with Broadcast Receiver
