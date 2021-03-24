@@ -1,7 +1,7 @@
 # TactBot🤖
-Project to create an Android Studio app that uses bluetooth to communicate with a RPI4. The RPI4 will interface
-with an RC Car through the GPIO PWM Signals. Commands will be sent through bluetooth protocol and use of socket
-programming. To access the manifest, main activity, and design file use the following path: App-Src-Main
+Wireless robot project that uses bluetooth from Android device to communicate with a RPI4. The RPI4 will interface
+with an RC Car through the GPIO PWM Signals. Commands will be sent through Android bluetooth protocol. To access the manifest, 
+main activity, and design file use the following path: App-Src-Main
 
 Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
@@ -55,7 +55,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️02/02/2021: RPI Cam Research - Computer Vision?
 
-✔️03/24/2021: Ordered Pixel 2 for development off Amazon, redesignig app for less clutter. All in for next 4 months.
+✔️03/24/2021: Ordered Pixel 2 for development off Amazon, redesignig app for less clutter. All in for next 4 months. Up to date app not yet uploaded here.
 
 
 
