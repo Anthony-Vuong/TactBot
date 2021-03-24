@@ -55,5 +55,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️02/02/2021: RPI Cam Research - Computer Vision?
 
+✔️03/24/2021: Ordered Pixel 2 for development off Amazon, redesignig app for less clutter. All in for next 4 months.
+
 
 
