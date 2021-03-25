@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,132 +7,71 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/connectButton"
-        android:layout_width="95dp"
-        android:layout_height="57dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="296dp"
-        android:layout_marginLeft="296dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:layout_marginBottom="652dp"
-        android:text="@string/connect"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/btnLeft"
+        android:layout_width="125dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="492dp"
+        android:text="@string/left"
+        app:backgroundTint="#19BF20"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/connectedBox"
-        android:layout_width="116dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="268dp"
-        android:layout_marginLeft="268dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="291dp"
-        android:layout_marginRight="291dp"
-        android:layout_marginBottom="528dp"
-        android:text="@string/connectedButton"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/btnRight"
+        android:layout_width="125dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="492dp"
+        android:text="@string/right"
+        app:backgroundTint="#18C11F"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintHorizontal_bias="0.982"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/enSwitch"
-        android:layout_width="195dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="123dp"
-        android:layout_marginEnd="307dp"
-        android:layout_marginRight="307dp"
-        android:layout_marginBottom="572dp"
-        android:text="@string/enable_nbluetooth"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/btnForward"
+        android:layout_width="125dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="388dp"
+        android:text="@string/forward"
+        app:backgroundTint="#0EC516"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/enDiscovery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="247dp"
-        android:layout_marginRight="247dp"
-        android:layout_marginBottom="665dp"
-        android:text="@string/enable_discovery" />
+        android:id="@+id/btnBackward"
+        android:layout_width="125dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="588dp"
+        android:text="@string/backward"
+        app:backgroundTint="#14CD1B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:layout_marginBottom="583dp"
-        android:text="@string/discover"
-        android:onClick="DiscoverDevices"
-        tools:ignore="OnClick" />
-
-    <ListView
-        android:id="@+id/deviceListView"
-        android:layout_width="385dp"
-        android:layout_height="164dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="303dp" />
+        android:id="@+id/btnStop"
+        android:layout_width="125dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="492dp"
+        android:text="@string/stop"
+        app:backgroundTint="#E60F0F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/startConnection"
+        android:id="@+id/btnConnectivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginBottom="494dp"
-        android:text="Start Connection" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="118dp"
-        android:layout_marginRight="118dp"
-        android:layout_marginBottom="222dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
-
-    <Button
-        android:id="@+id/sendButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
-        android:layout_marginBottom="224dp"
-        android:text="Send" />
-
-
-</RelativeLayout>
+        android:layout_marginTop="80dp"
+        android:text="@string/connectivity"
+        app:backgroundTint="#23ADEC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

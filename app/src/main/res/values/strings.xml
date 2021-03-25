@@ -1,14 +1,9 @@
 <resources>
     <string name="app_name">TactBot</string>
-    <string name="stop">STOP</string>
-    <string name="b">B</string>
-    <string name="f">F</string>
-    <string name="r">R</string>
-    <string name="connect">Connect</string>
-    <string name="l">L</string>
-    <string name="connectedButton">Connected</string>
-    <string name="enable">Enable</string>
-    <string name="enable_nbluetooth">Enable\nBluetooth</string>
-    <string name="enable_discovery">Enable Discovery</string>
-    <string name="discover">Discover</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="forward">Forward</string>
+    <string name="backward">Backward</string>
+    <string name="stop">Stop</string>
+    <string name="connectivity">Connectivity</string>
 </resources>
