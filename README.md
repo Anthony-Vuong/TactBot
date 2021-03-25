@@ -57,5 +57,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️03/24/2021: Ordered Pixel 2 for development off Amazon, redesignig app for less clutter. All in for next 4 months. Up to date app not yet uploaded here.
 
+✔️03/24/2021: Emulator demo coming soon...
+
 
 
