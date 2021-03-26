@@ -2,16 +2,21 @@ package com.example.tactbot;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class Connectivity extends AppCompatActivity {
     //Connectivity TAG
@@ -19,6 +24,15 @@ public class Connectivity extends AppCompatActivity {
 
     //Bluetooth Adapter - fundamental bluetooth tasks, local to device
     BluetoothAdapter bluetoothAdapter;
+
+    //Arraylist to hold discovered devices
+    public ArrayList<BluetoothDevice> btDevices = new ArrayList<>();
+
+    //DeviceListAdapter to help display device name/address in listview
+    public DeviceListAdapter deviceListAdapter;
+
+    //ListView to display devices
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +42,18 @@ public class Connectivity extends AppCompatActivity {
         //Set to local bluetooth adapter
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
+        //List view of devices, id from xml file
+        listView = (ListView)findViewById(R.id.DeviceList);
+
+        //Array of bluetooth devices
+        btDevices = new ArrayList<>();
+
         //On/off button - bluetooth on/off
         Button onOff = (Button)findViewById(R.id.btnOnOff);
         onOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onOffBT();
+                toggleBT();
             }
         });
 
@@ -43,6 +63,14 @@ public class Connectivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 toggleDiscovery();
+            }
+        });
+
+        Button devices = (Button)findViewById(R.id.btnDevices);
+        devices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listDevices();
             }
         });
     }
@@ -111,6 +139,28 @@ public class Connectivity extends AppCompatActivity {
 
     /////////////////////////////////// BROADCAST RECEIVER2 /////////////////////////////////////////////////
 
+    /////////////////////////////////// BROADCAST RECEIVER3 /////////////////////////////////////////////////
+
+    private final BroadcastReceiver mBroadcastReceiver3 = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (action.equals(BluetoothDevice.ACTION_FOUND)) {
+                //Retrieves bluetooth device previously added from intent
+                BluetoothDevice dev = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                //Add device to array list
+                btDevices.add(dev);
+                Log.d(TAG, "Device list adding: " + dev.getName() + " " + dev.getAddress());
+
+                deviceListAdapter = new DeviceListAdapter(context, R.layout.activity_device_list_adapter, btDevices);
+                listView.setAdapter(deviceListAdapter);
+
+
+            }
+        }
+    };
+
+    /////////////////////////////////// BROADCAST RECEIVER3 /////////////////////////////////////////////////
+
 
     @Override
     protected void onDestroy() {
@@ -118,11 +168,11 @@ public class Connectivity extends AppCompatActivity {
         super.onDestroy();
         unregisterReceiver(mBroadcastReceiver1);
         unregisterReceiver(mBroadcastReceiver2);
-
+        unregisterReceiver(mBroadcastReceiver3);
     };
 
 
-    public void onOffBT(){
+    public void toggleBT(){
         if(bluetoothAdapter == null){
             Log.d(TAG, "Device has no bluetooth capabilities.");
         }
@@ -164,4 +214,42 @@ public class Connectivity extends AppCompatActivity {
         //RegisterReceiver
         registerReceiver(mBroadcastReceiver2, discoverIntent);
     };
+
+    public void listDevices(){
+        Log.d(TAG, "listDevices: Listing discovered devices ");
+        if(bluetoothAdapter.isDiscovering()){
+            Log.d(TAG, "listDevices:isDiscovering: Cancel Discovery");
+            bluetoothAdapter.cancelDiscovery();
+
+            //For Android Version above 6, include these permissions
+            checkBTpermissions();
+
+            Log.d(TAG, "listDevices:isDiscovering: StartDiscovery");
+            bluetoothAdapter.startDiscovery();
+
+            IntentFilter deviceIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+            registerReceiver(mBroadcastReceiver3, deviceIntent);
+        }
+        if(!bluetoothAdapter.isDiscovering()){
+            Log.d(TAG, "listDevices:isNotDiscovering: StartDiscovery");
+
+            checkBTpermissions();
+            bluetoothAdapter.startDiscovery();
+            IntentFilter deviceIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+            registerReceiver(mBroadcastReceiver3, deviceIntent);
+        }
+    }
+
+    private void checkBTpermissions(){
+
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
+            //Checks the app if the permission is granted
+            int permissionCheck = this.checkSelfPermission("Manifest.permission.ACCESS_COARSE_LOCATION");
+            permissionCheck += this.checkSelfPermission("Manifest.permission.ACCESS_FINE_LOCATION");
+            if(permissionCheck != 0){
+                //Requests approval for permissions passed in as string
+                this.requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1001);
+            }
+        }
+    }
 }

@@ -7,70 +7,34 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnLeft"
-        android:layout_width="125dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="492dp"
-        android:text="@string/left"
-        app:backgroundTint="#19BF20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.017"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnRight"
-        android:layout_width="125dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="492dp"
-        android:text="@string/right"
-        app:backgroundTint="#18C11F"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.982"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnForward"
-        android:layout_width="125dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="388dp"
-        android:text="@string/forward"
-        app:backgroundTint="#0EC516"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnBackward"
-        android:layout_width="125dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="588dp"
-        android:text="@string/backward"
-        app:backgroundTint="#14CD1B"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnStop"
-        android:layout_width="125dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="492dp"
-        android:text="@string/stop"
-        app:backgroundTint="#E60F0F"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/btnConnectivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="@string/connectivity"
         app:backgroundTint="#23ADEC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPilotMode"
+        android:layout_width="143dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="152dp"
+        android:text="@string/pilot_mode"
+        app:backgroundTint="#1E38C6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnInstructions"
+        android:layout_width="147dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="228dp"
+        android:text="@string/instructions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
