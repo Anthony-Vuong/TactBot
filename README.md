@@ -59,5 +59,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️03/25/2021: Additional page for PILOT MODE, considering making Joystick, time permitted. Emulator demo coming soon...
 
+✔️03/26/2021: Further app developments.
+
 
 
