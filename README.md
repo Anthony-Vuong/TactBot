@@ -61,5 +61,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️03/26/2021: Further app developments.
 
+✔️03/28/2021: Minor app bug fixes encountered and temporary fixes applied. 
+
 
 
