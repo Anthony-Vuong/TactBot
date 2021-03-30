@@ -193,21 +193,27 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        if(mBroadcastReceiver1 != null){
-//            Log.d(TAG, "Destroying mBroadcastReceiver1");
-//
-//            unregisterReceiver(mBroadcastReceiver1);
-//        }
-//        if(mBroadcastReceiver2 != null){
-//            Log.d(TAG, "Destroying mBroadcastReceiver2");
-//
-//            unregisterReceiver(mBroadcastReceiver2);
-//        }
-//        if(mBroadcastReceiver3 != null){
-//            Log.d(TAG, "Destroying mBroadcastReceiver3");
-//
-//            unregisterReceiver(mBroadcastReceiver3);
-//        }
+        if(mBroadcastReceiver1 != null){
+            Log.d(TAG, "Destroying mBroadcastReceiver1");
+
+            unregisterReceiver(mBroadcastReceiver1);
+        }
+        if(mBroadcastReceiver2 != null){
+            Log.d(TAG, "Destroying mBroadcastReceiver2");
+
+            unregisterReceiver(mBroadcastReceiver2);
+        }
+        if(mBroadcastReceiver3 != null){
+            Log.d(TAG, "Destroying mBroadcastReceiver3");
+
+            unregisterReceiver(mBroadcastReceiver3);
+        }
+
+        if(mBroadcastReceiver4 != null){
+            Log.d(TAG, "Destroying mBroadcastReceiver4");
+
+            unregisterReceiver(mBroadcastReceiver4);
+        }
 
     };
 
