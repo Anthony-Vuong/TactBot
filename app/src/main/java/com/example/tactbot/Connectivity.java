@@ -13,12 +13,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class Connectivity extends AppCompatActivity {
+public class Connectivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     //Connectivity TAG
     private final static String TAG = "CONNECTIVITY ACTIVITY";
 
@@ -44,6 +45,7 @@ public class Connectivity extends AppCompatActivity {
 
         //List view of devices, id from xml file
         listView = (ListView)findViewById(R.id.DeviceList);
+        listView.setOnItemClickListener(Connectivity.this);
 
         //Array of bluetooth devices
         btDevices = new ArrayList<>();
@@ -57,7 +59,6 @@ public class Connectivity extends AppCompatActivity {
             }
         });
 
-        //On/off button - bluetooth on/off
         Button discover = (Button)findViewById(R.id.btnDiscover);
         discover.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +74,9 @@ public class Connectivity extends AppCompatActivity {
                 listDevices();
             }
         });
+
+        IntentFilter pairIntent = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
+        registerReceiver(mBroadcastReceiver4, pairIntent);
     }
 
 
@@ -161,14 +165,50 @@ public class Connectivity extends AppCompatActivity {
 
     /////////////////////////////////// BROADCAST RECEIVER3 /////////////////////////////////////////////////
 
+    /////////////////////////////////// BROADCAST RECEIVER4 /////////////////////////////////////////////////
+
+    private final BroadcastReceiver mBroadcastReceiver4 = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (action.equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)) {
+                BluetoothDevice copyDev = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+
+                if(copyDev.getBondState() == BluetoothDevice.BOND_BONDED){
+                    Log.d(TAG, "BOND: BONDED");
+                }
+                if(copyDev.getBondState() == BluetoothDevice.BOND_BONDING){
+                    Log.d(TAG, "BOND: BONDING");
+                }
+                if(copyDev.getBondState() == BluetoothDevice.BOND_NONE){
+                    Log.d(TAG, "BOND: NONE");
+                }
+
+            }
+        }
+    };
+
+    /////////////////////////////////// BROADCAST RECEIVER4 /////////////////////////////////////////////////
+
 
     @Override
     protected void onDestroy() {
-        Log.d(TAG, "Destroying mBroadcastReceiver1");
         super.onDestroy();
-        unregisterReceiver(mBroadcastReceiver1);
-        unregisterReceiver(mBroadcastReceiver2);
-        unregisterReceiver(mBroadcastReceiver3);
+//        if(mBroadcastReceiver1 != null){
+//            Log.d(TAG, "Destroying mBroadcastReceiver1");
+//
+//            unregisterReceiver(mBroadcastReceiver1);
+//        }
+//        if(mBroadcastReceiver2 != null){
+//            Log.d(TAG, "Destroying mBroadcastReceiver2");
+//
+//            unregisterReceiver(mBroadcastReceiver2);
+//        }
+//        if(mBroadcastReceiver3 != null){
+//            Log.d(TAG, "Destroying mBroadcastReceiver3");
+//
+//            unregisterReceiver(mBroadcastReceiver3);
+//        }
+
     };
 
 
@@ -251,5 +291,18 @@ public class Connectivity extends AppCompatActivity {
                 this.requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1001);
             }
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        bluetoothAdapter.cancelDiscovery();
+
+        String devName = btDevices.get(position).getName();
+        String devAddress= btDevices.get(position).getAddress();
+
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2){
+            btDevices.get(position).createBond();
+        }
+
     }
 }
