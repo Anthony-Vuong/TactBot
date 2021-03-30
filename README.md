@@ -65,5 +65,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️03/29/2021: App developments - testing on PIXEL 2 is good!
 
+✔️03/30/2021: App developments - enable/disable bluetooth, discover other bluetooth devices, and pairing. For a virtual device demo follow this [link](https://youtu.be/aG-tTt_GuIU)
+
 
 
