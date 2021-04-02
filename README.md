@@ -67,7 +67,7 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 
 ✔️03/30/2021: App developments - enable/disable bluetooth, discover other bluetooth devices, and pairing. For a virtual device demo follow this [link](https://youtu.be/aG-tTt_GuIU)
 
-✔️04/02/2021: App developmentsfor bluetooth data transfers! Pairing is okay for now...
+✔️04/02/2021: App developments for bluetooth data transfers! Pairing is okay for now...
 RPI screen coming Saturday. Will begin testing connections when screen comes in, results pending!
 
 
