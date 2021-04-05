@@ -70,5 +70,11 @@ python files. Rover feature given motor controls. HAPPY THANKSGIVING!!!
 ✔️04/02/2021: App developments for bluetooth data transfers! Pairing is okay for now...
 RPI screen coming Saturday. Will begin testing connections when screen comes in, results pending!
 
+✔️04/04/2021: App developments - Sending/Receiving data code added - classes{accept/connect/connected}
+
+✔️04/05/2021: RPI4 Screen and Keyboard received. Power tests resuming...
+
+
+
 
 
