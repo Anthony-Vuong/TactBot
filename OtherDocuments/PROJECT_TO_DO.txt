@@ -1,3 +1,3 @@
-1. Upload App to Phone
-2. Connect to Raspberry Pi
-3. Test Connectivity
+1. Upload App to Phone - DONE
+2. Connect to Raspberry Pi - IN PROGRESS
+3. Test Connectivity - TBD
