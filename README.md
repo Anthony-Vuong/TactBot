@@ -77,9 +77,10 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 ✔️04/07/2021: Successfully integrated Elecgrow display to RPI4. 
 
 ✔️04/08/2021: Conducting power tests with Metecsmart PowerBank. Goals for power test:
-  - [ ] Avoid burning the RPI4
-  - [ ] Run for 1 hour >
-  - [ ] Powerbank provides enough supply to RPI4  
+
+    - [ ] Avoid burning the RPI4
+    - [ ] Run for 1 hour >
+    - [ ] Powerbank provides enough supply to RPI4  
 
 
 
