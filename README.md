@@ -82,7 +82,7 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
   - [x] Run for 1 hour >
   - [x] Powerbank provides enough supply to RPI4  
   
-  Future testing - running scripts with multiple peripherals
+  💡 Future testing - running scripts with multiple peripherals
   
 ✔️04/13/2021: More helpful links to interfacing RPI with Traxxas RC Car: 
 
