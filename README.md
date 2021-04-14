@@ -86,9 +86,10 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
   
 ✔️04/13/2021: More helpful links to interfacing RPI with Traxxas RC Car: 
 
-  L1(Itemis): [link](https://blogs.itemis.com/en/how-to-set-up-a-robocar-platform-with-a-remote-control-unit)
-  L2(Instructables): [link](https://www.instructables.com/Raspberry-Pi-Remote-Controlled-Car-1/)
- 
+   L1(Itemis): [link](https://blogs.itemis.com/en/how-to-set-up-a-robocar-platform-with-a-remote-control-unit)
+   L2(Instructables): [link](https://www.instructables.com/Raspberry-Pi-Remote-Controlled-Car-1/)
+   
+   RPI4 UUID: Which one? "4E90-7B95", "21466080-2A52-48fb-8f2c-32f4f424694c", "0355-D7B0", "1542b7d9-e011-4ca2-9c6d-80d5af3b811c"
 
 
 
