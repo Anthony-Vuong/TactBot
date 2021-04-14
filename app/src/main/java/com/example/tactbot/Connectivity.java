@@ -15,9 +15,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Connectivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     //Connectivity TAG
@@ -35,6 +38,15 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
     //ListView to display devices
     ListView listView;
 
+    //Bluetooth Connection Service - Bluetooth Util Class
+    BluetoothUtil bluetoothUtil;
+
+    //UUID for RPI - sudo blkid in RPI cmd prompt, current UUID is incorrect
+    private static final UUID MY_UUID_INSECURE = UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
+
+    //Global Bluetooth Device
+    BluetoothDevice bluetoothDevice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +61,29 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Array of bluetooth devices
         btDevices = new ArrayList<>();
+
+        //EditText View for Sending Messages
+        EditText editText = (EditText) findViewById(R.id.editTextView);
+
+
+        //Button for established connection
+        Button btnConnection = (Button)findViewById(R.id.btnConnection);
+        btnConnection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startConnection();
+            }
+        });
+
+        //Button to send the message
+        Button btnSend = (Button)findViewById(R.id.sendButton);
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                byte[] bytes = editText.getText().toString().getBytes(Charset.defaultCharset());
+                bluetoothUtil.write(bytes);
+            }
+        });
 
         //On/off button - bluetooth on/off
         Button onOff = (Button)findViewById(R.id.btnOnOff);
@@ -175,6 +210,7 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
 
                 if(copyDev.getBondState() == BluetoothDevice.BOND_BONDED){
                     Log.d(TAG, "BOND: BONDED");
+                    bluetoothDevice = copyDev;
                 }
                 if(copyDev.getBondState() == BluetoothDevice.BOND_BONDING){
                     Log.d(TAG, "BOND: BONDING");
@@ -188,6 +224,18 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
     };
 
     /////////////////////////////////// BROADCAST RECEIVER4 /////////////////////////////////////////////////
+
+    public void startConnection(){
+        Log.d(TAG, "START BT CONNECTION");
+        startBTConnection(bluetoothDevice, MY_UUID_INSECURE);
+    }
+
+
+    public void startBTConnection(BluetoothDevice dev, UUID uuid){
+        Log.d(TAG, "START BT CONNECTION");
+        bluetoothUtil.startClient(dev, uuid);
+    }
+
 
 
     @Override
@@ -308,6 +356,8 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
 
         if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2){
             btDevices.get(position).createBond();
+            bluetoothDevice = btDevices.get(position);
+            bluetoothUtil = new BluetoothUtil(Connectivity.this);
         }
 
     }

@@ -6,8 +6,12 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.icu.util.Output;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.util.UUID;
 
 public class BluetoothUtil {
@@ -18,13 +22,17 @@ public class BluetoothUtil {
     private final BluetoothAdapter bluetoothAdapter;
     private AcceptThread acceptThread;
     private ConnectThread connectThread;
+    private ConnectedThread connectedThread;
+
     private BluetoothDevice bluetoothDevice;
     private UUID devUUID;
+    ProgressDialog mProgressDialog;
     Context context;
 
     public BluetoothUtil(Context con_context){
         context = con_context;
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        start();
     }
 
 
@@ -53,7 +61,7 @@ public class BluetoothUtil {
             }
 
             if(socket != null){
-                connected(socket, dev);
+                connected(socket, bluetoothDevice);
             }
         }
 
@@ -113,9 +121,71 @@ public class BluetoothUtil {
             }
         }
 
-
     }
 
+    private class ConnectedThread extends Thread{
+        private final BluetoothSocket bluetoothSocket;
+        private final InputStream inputStream;
+        private final OutputStream outputStream;
+
+        public ConnectedThread(BluetoothSocket socket){
+            bluetoothSocket = socket;
+            InputStream inTemp = null;
+            OutputStream outTemp = null;
+
+            mProgressDialog.dismiss();
+
+            try {
+                inTemp = bluetoothSocket.getInputStream();
+                outTemp = bluetoothSocket.getOutputStream();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            inputStream = inTemp;
+            outputStream = outTemp;
+        }
+
+        public void run(){
+            byte[] buffer = new byte[1024];
+
+            int bytes;
+
+            while(true){
+                try {
+                    bytes = inputStream.read(buffer);
+                    String message = new String(buffer, 0, bytes);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    break;
+                }
+
+            }
+        }
+
+        public void write(byte[] bytes){
+            String text = new String(bytes, Charset.defaultCharset());
+
+            try {
+                outputStream.write(bytes);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        public void cancel(){
+            try {
+                bluetoothSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
 
     public synchronized  void start(){
         if(connectThread != null){
@@ -129,10 +199,21 @@ public class BluetoothUtil {
     }
 
     public void startClient(BluetoothDevice device, UUID uuid){
-        ProgressDialog mProgressDialog = ProgressDialog.show(context, "Connecting...", "Waiting for connection...", true);
+        mProgressDialog = ProgressDialog.show(context, "Connecting...", "Waiting for connection...", true);
 
         connectThread = new ConnectThread(device, uuid);
         connectThread.start();
+
+    }
+
+    private void connected(BluetoothSocket socket, BluetoothDevice blueDev){
+        connectedThread = new ConnectedThread(socket);
+        connectedThread.start();
+    }
+
+    public void write(byte[] bytes){
+        ConnectedThread connectedThread1;
+        connectedThread.write(bytes);
 
     }
 
