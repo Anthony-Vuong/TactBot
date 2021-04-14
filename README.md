@@ -78,9 +78,17 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️04/08/2021: Conducting power tests with Metecsmart PowerBank. Goals for power test:
 
-  - [ ] Avoid burning the RPI4
-  - [ ] Run for 1 hour >
-  - [ ] Powerbank provides enough supply to RPI4  
+  - [x] Avoid burning the RPI4
+  - [x] Run for 1 hour >
+  - [x] Powerbank provides enough supply to RPI4  
+  
+  💡 Future testing - running scripts with multiple peripherals
+  
+✔️04/13/2021: More helpful links to interfacing RPI with Traxxas RC Car: 
+
+  L1(Itemis): [link](https://blogs.itemis.com/en/how-to-set-up-a-robocar-platform-with-a-remote-control-unit)
+  L2(Instructables): [link](https://www.instructables.com/Raspberry-Pi-Remote-Controlled-Car-1/)
+ 
 
 
 
