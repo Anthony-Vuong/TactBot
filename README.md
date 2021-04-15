@@ -91,7 +91,7 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
    
    RPI4 UUID: Which one? "4E90-7B95", "21466080-2A52-48fb-8f2c-32f4f424694c", "0355-D7B0", "1542b7d9-e011-4ca2-9c6d-80d5af3b811c"
 
-
+✔️04/13/2021: The following link will help in a huge in milestone on the project. Thank you Electrofun! .[link].https://www.youtube.com/watch?v=NddZnd95cyE
 
 
 
