@@ -93,6 +93,8 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️04/15/2021: The following link will help in a huge in milestone on the project. Thank you Electrofun! Here is link:  [link](https://www.youtube.com/watch?v=NddZnd95cyE)
 
+✔️05/24/2021: New route taken to control RPI4 through Android App and Bluetooth: Android App -> Bluetooth -> HC06 -> RPI4; SUCCESS with new approach - Able to send messages from App to RPI4!
+
 
 
 
