@@ -95,6 +95,8 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️05/24/2021: New route taken to control RPI4 through Android App and Bluetooth: Android App -> Bluetooth -> HC06 -> RPI4; SUCCESS with new approach - Able to send messages from App to RPI4!
 
+✔️05/31/2021: Switching App Acitivites problems. Will develop all controls on one activity for now. Creating serial script to command rover.
+
 
 
 
