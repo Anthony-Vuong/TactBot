@@ -24,8 +24,7 @@ public class MainActivity extends AppCompatActivity {
         connectivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), Connectivity.class);
-                view.getContext().startActivity(intent);}
+                startActivity(new Intent(MainActivity.this, Connectivity.class));}
         });
 
         //Pilot Mode Button - leads to Controls Page

@@ -27,4 +27,5 @@
     <string name="this_will_appear_to_the_user_if_he_didn_t_enter_something_yet_in_the_edittext">This will appear to the user if he didn\'t enter something yet in the EditText</string>
     <string name="yep">Yep</string>
     <string name="connect">CONNECT</string>
+    <string name="back">Button</string>
 </resources>

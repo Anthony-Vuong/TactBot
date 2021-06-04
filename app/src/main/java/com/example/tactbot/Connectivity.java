@@ -42,7 +42,7 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
     BluetoothUtil bluetoothUtil;
 
     //UUID for RPI - sudo blkid in RPI cmd prompt, current UUID is incorrect
-    private static final UUID MY_UUID_INSECURE = UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
+    private static final UUID MY_UUID_INSECURE = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     //Global Bluetooth Device
     BluetoothDevice bluetoothDevice;
@@ -65,7 +65,6 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
         //EditText View for Sending Messages
         EditText editText = (EditText) findViewById(R.id.editTextView);
 
-
         //Button for established connection
         Button btnConnection = (Button)findViewById(R.id.btnConnection);
         btnConnection.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +80,61 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 byte[] bytes = editText.getText().toString().getBytes(Charset.defaultCharset());
+                bluetoothUtil.write(bytes);
+            }
+        });
+
+        //Button to send the message
+        Button btnForward = (Button)findViewById(R.id.btnForward);
+        btnForward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = "1";
+                byte[] bytes = text.getBytes(Charset.defaultCharset());
+                bluetoothUtil.write(bytes);
+            }
+        });
+
+        //Button for established connection
+        Button btnBackward = (Button)findViewById(R.id.btnBackward);
+        btnBackward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = "3";
+                byte[] bytes = text.getBytes(Charset.defaultCharset());
+                bluetoothUtil.write(bytes);
+            }
+        });
+
+        //Button for established connection
+        Button btnLeft = (Button)findViewById(R.id.btnLeft);
+        btnLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = "4";
+                byte[] bytes = text.getBytes(Charset.defaultCharset());
+                bluetoothUtil.write(bytes);
+            }
+        });
+
+        //Button for established connection
+        Button btnRight = (Button)findViewById(R.id.btnRight);
+        btnRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = "2";
+                byte[] bytes = text.getBytes(Charset.defaultCharset());
+                bluetoothUtil.write(bytes);
+            }
+        });
+
+        //Button for established connection
+        Button btnStop = (Button)findViewById(R.id.btnStop);
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = "5";
+                byte[] bytes = text.getBytes(Charset.defaultCharset());
                 bluetoothUtil.write(bytes);
             }
         });
@@ -238,32 +292,32 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if(mBroadcastReceiver1 != null){
-            Log.d(TAG, "Destroying mBroadcastReceiver1");
-
-            unregisterReceiver(mBroadcastReceiver1);
-        }
-        if(mBroadcastReceiver2 != null){
-            Log.d(TAG, "Destroying mBroadcastReceiver2");
-
-            unregisterReceiver(mBroadcastReceiver2);
-        }
-        if(mBroadcastReceiver3 != null){
-            Log.d(TAG, "Destroying mBroadcastReceiver3");
-
-            unregisterReceiver(mBroadcastReceiver3);
-        }
-
-        if(mBroadcastReceiver4 != null){
-            Log.d(TAG, "Destroying mBroadcastReceiver4");
-
-            unregisterReceiver(mBroadcastReceiver4);
-        }
-
-    };
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        if(mBroadcastReceiver1 != null){
+//            Log.d(TAG, "Destroying mBroadcastReceiver1");
+//
+//            unregisterReceiver(mBroadcastReceiver1);
+//        }
+//        if(mBroadcastReceiver2 != null){
+//            Log.d(TAG, "Destroying mBroadcastReceiver2");
+//
+//            unregisterReceiver(mBroadcastReceiver2);
+//        }
+//        if(mBroadcastReceiver3 != null){
+//            Log.d(TAG, "Destroying mBroadcastReceiver3");
+//
+//            unregisterReceiver(mBroadcastReceiver3);
+//        }
+//
+//        if(mBroadcastReceiver4 != null){
+//            Log.d(TAG, "Destroying mBroadcastReceiver4");
+//
+//            unregisterReceiver(mBroadcastReceiver4);
+//        }
+//
+//    };
 
 
     public void toggleBT(){
