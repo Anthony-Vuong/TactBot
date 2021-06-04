@@ -97,6 +97,8 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️05/31/2021: Switching App Acitivites problems. Will develop all controls on one activity for now. Creating serial script to command rover.
 
+✔️06/03/2021: App updates: Adding rover controls to connectivity page. Activity life cycle research needed for multi activity app.
+
 
 
 
