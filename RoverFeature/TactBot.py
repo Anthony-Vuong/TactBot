@@ -1,4 +1,4 @@
-'''@file                    changeUtil.py
+'''@file                    TactBot.py
    @brief                   Brief doc for serialBot.py
    @details                 Detailed doc for serialBot.py 
    @author                  Anthony Vuong, Pedro Muñoz-Rodriguez
@@ -43,10 +43,7 @@ class TactBot:
                     print("Command not valid")
                     
                     
-                #CHANGE SPEED
-                throttle.ChangeDutyCycle(direction)
-                #CHANGE DIRECTION
-                steering.ChangeDutyCycle(steer)
+                self.rover.run()
                 
             except KeyboardInterrupt:
                 break

@@ -18,7 +18,7 @@ class Rover:
         self.steerDirection = 0
         
     
-    def run(self, speed, direction):
+    def run(self):
         self.steer.ChangeDutyCycle(self.steerDirection)
         self.throttle.ChangeDutyCycle(self.throttleVelocity)
         
