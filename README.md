@@ -99,6 +99,8 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️06/03/2021: App updates: Adding rover controls to connectivity page. Activity life cycle research needed for multi activity app.
 
+✔️06/18/2021: Created documentation for code - not completely updated.
+
 
 
 
