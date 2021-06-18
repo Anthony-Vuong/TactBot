@@ -7,7 +7,7 @@ Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
 Development Status:
                   
-                     App: Testing 🔵
+                     App: In Development 🟡
                   
                    Rover: In Development 🟡
                   
