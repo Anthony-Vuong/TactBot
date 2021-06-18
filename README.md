@@ -14,7 +14,7 @@ Development Status:
                   Turret: On Hold 🔴
     
     
-                  Updated: 02 - 02 - 2021
+                  Updated: 06 - 18 - 2021
 
 
 ✔️11/15/2020: MainActivity Updated with Broadcast Receiver
