@@ -8,16 +8,6 @@
 import serial
 import RPI.gpio as GPIO
 
-
-
-
-
-
-
-
-    
-    
-    
 class TactBot:
     def __init__(self, rover, turret):
         self.rover = rover
