@@ -1,16 +1,21 @@
-#!/usr/bin/python
+'''@file                    changeUtil.py
+   @brief                   Brief doc for serialBot.py
+   @details                 Detailed doc for serialBot.py 
+   @author                  Anthony Vuong, Pedro Muñoz-Rodriguez
+   @date                    June 18, 2021
+'''
 
-import serial, sys
+import serial
 import RPI.gpio as GPIO
 
 blue = serial.Serial("/dev/serial0", baudrate=9600, timeout=2)
 
 #STEERING PWM PIN
-steering = GPIO.PWM(12, 100)
+steering = GPIO.PWM(12, 50)
 steering.start(0)
 
 #THROTTLE PWM PIN
-throttle = GPIO.PWM(13, 100)
+throttle = GPIO.PWM(13, 50)
 throttle.start(0)
 
 #INCREMENT VARIABLES FOR DIRECTION AND SPEED
@@ -22,7 +27,7 @@ while True:
     
     try:
         data=blue.readline()
-       
+    
         print(data)
         
         if(data == '1'):
@@ -40,6 +45,7 @@ while True:
         elif(data == '5'):
             #STOP
             direction = 0
+            steer = 0
         else:
             print("Command not valid")
             
@@ -50,7 +56,7 @@ while True:
         steering.ChangeDutyCycle(steer)
         
     except KeyboardInterrupt:
-        sys.exit(0)
+        break
     
     
     
