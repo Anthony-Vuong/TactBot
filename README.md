@@ -101,6 +101,8 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️06/18/2021: Created documentation for code - not completely updated.
 
+✔️06/21/2021: Created driver file for rover.
+
 
 
 
