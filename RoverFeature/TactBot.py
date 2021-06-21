@@ -6,21 +6,22 @@
 '''
 
 import serial
-import RPI.gpio as GPIO
 
 class TactBot:
     def __init__(self, rover, turret):
         self.rover = rover
         self.turret = turret
-    
-    
-    def readSerial(self):
-        blue = serial.Serial("/dev/serial0", baudrate=9600, timeout=2)
+        
+        
+    def readSerial(self, serialPort):
+        data = serialPort.readline()
+        return data
+        
+    def controls(self, data):
         
         while True:
     
             try:
-                data=blue.readline()
             
                 print(data)
                 
