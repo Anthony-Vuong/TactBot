@@ -103,6 +103,8 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️06/21/2021: Created driver file for rover.
 
+✔️06/23/2021: Tested Bluetooth signal with RPI4 PWM with success - getting rid of timeout for serial port. Git repo on RPI4 created. Project meeting on 6/22.
+
 
 
 
