@@ -105,7 +105,7 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️06/23/2021: Tested Bluetooth signal with RPI4 PWM with success - getting rid of timeout for serial port. Git repo on RPI4 created. Project meeting on 6/22.
 
-
+✔️07/01/2021: Hardware connections for RPI4 and Traxxas Stampede RC Car  [link](https://projects.digilentinc.com/surrogatetv/internet-controlled-rc-car-with-hd-video-using-raspberry-pi-4b728c)
 
 
 
