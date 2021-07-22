@@ -7,11 +7,11 @@ Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
 Development Status:
                   
-                     App: In Development 🟡
+                     App: On Hold 🔴
                   
                    Rover: In Development 🟡
                   
-                  Turret: On Hold 🔴
+                  Turret: In Development 🟡
     
     
                   Updated: 06 - 18 - 2021
