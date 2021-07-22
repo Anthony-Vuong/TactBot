@@ -107,7 +107,7 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️07/01/2021: Hardware connections for RPI4 and Traxxas Stampede RC Car  [Link Here](https://projects.digilentinc.com/surrogatetv/internet-controlled-rc-car-with-hd-video-using-raspberry-pi-4b728c)
 
-✔️07/22/2021: Traxxas Stampede connected to RPI4 pwm pins through jumper wires. Steering servo can be controlled. The ESC (electronic speed control) is having troubling accepting pwm signals from RPI4.
+✔️07/22/2021: Traxxas Stampede connected to RPI4 pwm pins through jumper wires. Steering servo can be controlled. The ESC (electronic speed control) is having troubling accepting pwm signals from RPI4. Computer vision is installed on RPI4 and can detect a person, pretty cool. Need to train to find target, a red circle for our project.
 
 
 
