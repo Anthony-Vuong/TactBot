@@ -109,7 +109,7 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️07/22/2021: Traxxas Stampede connected to RPI4 pwm pins through jumper wires. Steering servo can be controlled. The ESC (electronic speed control) is having troubling accepting pwm signals from RPI4. Computer vision is installed on RPI4 and can detect a person, pretty cool. Need to train to find target, a red circle for our project.
 
-✔️07/22/2021: Training model procedure for Tensorflow for windows 10 then to Tensorflow lite for RPI4: .[Link LINK](https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi)
+✔️07/23/2021: Training model procedure for Tensorflow for windows 10 then to Tensorflow lite for RPI4: .[Link LINK](https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi)
 
 Added a portfolio for Tactbot at this .[Link LINK](https://avuong04.bitbucket.io/)
 
