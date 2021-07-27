@@ -113,6 +113,8 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 Added a portfolio for Tactbot at this .[Link LINK](https://avuong04.bitbucket.io/)
 
+✔️07/27/2021: Finally found Arduino hidden in electronics case. Conducting PWM testing with traxxas rc car. 
+
 
 
 
