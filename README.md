@@ -115,6 +115,8 @@ Added a portfolio for Tactbot at this .[Link LINK](https://avuong04.bitbucket.io
 
 ✔️07/27/2021: Finally found Arduino hidden in electronics case. Conducting PWM testing with traxxas rc car. 
 
+✔️07/29/2021: Found an article to help reading pwm with an Arduino. Follow this [LINK](http://www.remotebits.com/index.php/2017/12/06/how-to-read-the-traxxas-radio-pwm-signals-using-an-arduino/)
+
 
 
 
