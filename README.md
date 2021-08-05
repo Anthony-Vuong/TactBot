@@ -119,6 +119,7 @@ Added a portfolio for Tactbot at this .[Link LINK](https://avuong04.bitbucket.io
 
 ✔️07/30/2021: It seems the pwm values the arduino is reading from pulseIn() function is the following: throttle forward(1490-1981), reverse(991-1490), straight(1490-1500), left(1490-1980), right(991-1490)
 
-
+✔️08/05/2021: No luck programming ESC xl-5 for Traxxas RC Car. Big Picture Decision: Buying Elecrow Chassis as base for rover feature. In the mean time developing
+OpenCV and training with RPI Camera.
 
 
