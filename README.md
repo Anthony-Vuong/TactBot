@@ -122,4 +122,6 @@ Added a portfolio for Tactbot at this .[Link LINK](https://avuong04.bitbucket.io
 ✔️08/05/2021: No luck programming ESC xl-5 for Traxxas RC Car. Big Picture Decision: Buying Elecrow Chassis as base for rover feature. In the mean time developing
 OpenCV and training with RPI Camera.
 
+✔️08/06/2021: RPI Camera now has color tracking capability. Tested on orange inhaler and was for the most part able track it if held at a certain angle. May need a larger object. Testing Pan Tilt Hat, seems to work from commandline. Waiting on parts from Pimoroni to mount camera to hat. 
+
 
