@@ -124,4 +124,7 @@ OpenCV and training with RPI Camera.
 
 ✔️08/06/2021: RPI Camera now has color tracking capability. Tested on orange inhaler and was for the most part able track it if held at a certain angle. May need a larger object. Testing Pan Tilt Hat, seems to work from commandline. Waiting on parts from Pimoroni to mount camera to hat. 
 
+✔️08/08/2021: Testing color tracing - original test object (orange inhaler) was no longer detected by openCV. Weird since it worked the previous night - may have to do with 
+the lighting and color shading. Switched to a purple cup, but openCV detected it as more of blue color. Making a change RGB/HSV change helped openCV detect and trace the cup.
+
 
