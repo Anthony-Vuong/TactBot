@@ -7,11 +7,11 @@ Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
 Development Status:
                   
-                     App: In Development 🟡
+                     App: On Hold 🔴
                   
                    Rover: In Development 🟡
                   
-                  Turret: On Hold 🔴
+                  Turret: In Development 🟡
     
     
                   Updated: 06 - 18 - 2021
@@ -101,8 +101,30 @@ RPI screen coming Saturday. Will begin testing connections when screen comes in,
 
 ✔️06/18/2021: Created documentation for code - not completely updated.
 
+✔️06/21/2021: Created driver file for rover.
 
+✔️06/23/2021: Tested Bluetooth signal with RPI4 PWM with success - getting rid of timeout for serial port. Git repo on RPI4 created. Project meeting on 6/22.
 
+✔️07/01/2021: Hardware connections for RPI4 and Traxxas Stampede RC Car  [Link Here](https://projects.digilentinc.com/surrogatetv/internet-controlled-rc-car-with-hd-video-using-raspberry-pi-4b728c)
 
+✔️07/22/2021: Traxxas Stampede connected to RPI4 pwm pins through jumper wires. Steering servo can be controlled. The ESC (electronic speed control) is having troubling accepting pwm signals from RPI4. Computer vision is installed on RPI4 and can detect a person, pretty cool. Need to train to find target, a red circle for our project.
 
+✔️07/23/2021: Training model procedure for Tensorflow for windows 10 then to Tensorflow lite for RPI4: .[Link LINK](https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi)
 
+Added a portfolio for Tactbot at this .[Link LINK](https://avuong04.bitbucket.io/)
+
+✔️07/27/2021: Finally found Arduino hidden in electronics case. Conducting PWM testing with traxxas rc car. 
+
+✔️07/29/2021: Found an article to help reading pwm with an Arduino. Follow this [LINK](http://www.remotebits.com/index.php/2017/12/06/how-to-read-the-traxxas-radio-pwm-signals-using-an-arduino/)
+
+✔️07/30/2021: It seems the pwm values the arduino is reading from pulseIn() function is the following: throttle forward(1490-1981), reverse(991-1490), straight(1490-1500), left(1490-1980), right(991-1490)
+
+✔️08/05/2021: No luck programming ESC xl-5 for Traxxas RC Car. Big Picture Decision: Buying Elecrow Chassis as base for rover feature. In the mean time developing
+OpenCV and training with RPI Camera.
+
+✔️08/06/2021: RPI Camera now has color tracking capability. Tested on orange inhaler and was for the most part able track it if held at a certain angle. May need a larger object. Testing Pan Tilt Hat, seems to work from commandline. Waiting on parts from Pimoroni to mount camera to hat. 
+
+✔️08/08/2021: Testing color tracing - original test object (orange inhaler) was no longer detected by openCV. Weird since it worked the previous night - may have to do with 
+the lighting and color shading. Switched to a purple cup, but openCV detected it as more of blue color. Making a change RGB/HSV change helped openCV detect and trace the cup.
+
+✔️08/08/2021: Still waiting on more parts. Battery powering motor controller is possible with Duracell battery and 12v battery pack. Will test spinning motor to see how it holds up.
