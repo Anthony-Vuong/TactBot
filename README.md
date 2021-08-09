@@ -127,4 +127,4 @@ OpenCV and training with RPI Camera.
 ✔️08/08/2021: Testing color tracing - original test object (orange inhaler) was no longer detected by openCV. Weird since it worked the previous night - may have to do with 
 the lighting and color shading. Switched to a purple cup, but openCV detected it as more of blue color. Making a change RGB/HSV change helped openCV detect and trace the cup.
 
-
+✔️08/08/2021: Still waiting on more parts. Battery powering motor controller is possible with Duracell battery and 12v battery pack. Will test spinning motor to see how it holds up.
