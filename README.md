@@ -115,7 +115,7 @@ Added a portfolio for Tactbot at this .[Link LINK](https://avuong04.bitbucket.io
 
 ✔️07/27/2021: Finally found Arduino hidden in electronics case. Conducting PWM testing with traxxas rc car. 
 
-✔️07/29/2021: Found an article to help reading pwm with an Arduino. Follow this [LINK](http://www.remotebits.com/index.php/2017/12/06/how-to-read-the-traxxas-radio-pwm-signals-using-an-arduino/)
+✔️07/29/2021: Found an [article](http://www.remotebits.com/index.php/2017/12/06/how-to-read-the-traxxas-radio-pwm-signals-using-an-arduino/) to help reading pwm with an Arduino.
 
 ✔️07/30/2021: It seems the pwm values the arduino is reading from pulseIn() function is the following: throttle forward(1490-1981), reverse(991-1490), straight(1490-1500), left(1490-1980), right(991-1490)
 
