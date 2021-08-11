@@ -115,7 +115,7 @@ Added a portfolio for Tactbot at this .[Link LINK](https://avuong04.bitbucket.io
 
 ✔️07/27/2021: Finally found Arduino hidden in electronics case. Conducting PWM testing with traxxas rc car. 
 
-✔️07/29/2021: Found an article to help reading pwm with an Arduino. Follow this [LINK](http://www.remotebits.com/index.php/2017/12/06/how-to-read-the-traxxas-radio-pwm-signals-using-an-arduino/)
+✔️07/29/2021: Found an [article](http://www.remotebits.com/index.php/2017/12/06/how-to-read-the-traxxas-radio-pwm-signals-using-an-arduino/) to help reading pwm with an Arduino.
 
 ✔️07/30/2021: It seems the pwm values the arduino is reading from pulseIn() function is the following: throttle forward(1490-1981), reverse(991-1490), straight(1490-1500), left(1490-1980), right(991-1490)
 
@@ -127,4 +127,6 @@ OpenCV and training with RPI Camera.
 ✔️08/08/2021: Testing color tracing - original test object (orange inhaler) was no longer detected by openCV. Weird since it worked the previous night - may have to do with 
 the lighting and color shading. Switched to a purple cup, but openCV detected it as more of blue color. Making a change RGB/HSV change helped openCV detect and trace the cup.
 
-✔️08/08/2021: Still waiting on more parts. Battery powering motor controller is possible with Duracell battery and 12v battery pack. Will test spinning motor to see how it holds up.
+✔️08/09/2021: Still waiting on more parts. Battery powering motor controller is possible with Duracell battery and 12v battery pack. Will test spinning motor to see how it holds up. Also, pan tilt hat is now programmed to center object when tracking. Slow, but functional.
+
+✔️08/09/2021: Updated portfolio. Still waiting for rc parts. Note, we are working without encoder, so using this [link](https://maker.pro/raspberry-pi/tutorial/how-to-control-a-dc-motor-with-an-l298-controller-and-raspberry-pi) might help. Will need to to test rpm to distance measures.
