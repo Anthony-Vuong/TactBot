@@ -130,3 +130,5 @@ the lighting and color shading. Switched to a purple cup, but openCV detected it
 ✔️08/09/2021: Still waiting on more parts. Battery powering motor controller is possible with Duracell battery and 12v battery pack. Will test spinning motor to see how it holds up. Also, pan tilt hat is now programmed to center object when tracking. Slow, but functional.
 
 ✔️08/09/2021: Updated portfolio. Still waiting for rc parts. Note, we are working without encoder, so using this [link](https://maker.pro/raspberry-pi/tutorial/how-to-control-a-dc-motor-with-an-l298-controller-and-raspberry-pi) might help. Will need to to test rpm to distance measures.
+
+✔️08/11/2021: Rover features updated to work with DC motor with no encoder. Not tested yet.
