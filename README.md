@@ -134,3 +134,5 @@ the lighting and color shading. Switched to a purple cup, but openCV detected it
 ✔️08/11/2021: Rover features updated to work with DC motor with no encoder. Not tested yet.
 
 ✔️08/12/2021: Rover updated with steering and throttle. Not tested yet as parts are not in yet.
+
+✔️08/30/2021: Parts to complete Rover are in - will assemble by end of today. As well as work on multi-processing/threading motor. Should I work on joystick for app?
