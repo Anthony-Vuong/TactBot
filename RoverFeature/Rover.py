@@ -98,6 +98,7 @@ class Rover:
            @details Controls rover direction and speed upon every call
            @return None
         '''
+        valid_flag = 0 
          
         if(data == '1'):
             #throttle straight
@@ -115,5 +116,11 @@ class Rover:
             #STOP
             self.stop()
         else:
-            print("Command not valid")
+            valid_flag = 1
+            print("Rover controls(): valid flag : false")
+            return valid_flag
+    
+        
+        
+        
             

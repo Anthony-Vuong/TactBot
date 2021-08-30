@@ -28,9 +28,9 @@ class Motor:
             @details Initializes motor driver object with given parameters
             @return none
         '''
-        self.En_pin = GPIO(EnablePin, GPIO.OUT)
-        self.forward_pin = GPIO(ForwardPin, GPIO.OUT)
-        self.backward_pin = GPIO(BackwardPin, GPIO.OUT)
+        self.En_pin = GPIO.setup(EnablePin, GPIO.OUT)
+        self.forward_pin = GPIO.setup(ForwardPin, GPIO.OUT)
+        self.backward_pin = GPIO.setup(BackwardPin, GPIO.OUT)
         self.speed = GPIO.PWM(self.En_pin, 1000)
         self.speed.start(0)
         

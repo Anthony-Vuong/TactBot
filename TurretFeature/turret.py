@@ -1,6 +1,5 @@
 import pyb
-from motor import motor
-
+import camera
 
 
 class Turret:
@@ -14,15 +13,7 @@ class Turret:
     def locate(self):
         #not sure how to do this
         
-    def rotateHorizontal(self, position):
-        #not sure how to do this
-        
-    def rotateVertical(self, position):
-        #not sure how to do this
-        
     def launchPayload(self):
         #not sure how to do this
         
-    def recenter(self):
-        #send turret back to center
 

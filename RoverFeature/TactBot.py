@@ -6,16 +6,36 @@
 '''
 
 import serial
+import Rover
+import Turret
 
 class TactBot:
     def __init__(self, rover, turret):
         self.rover = rover
         self.turret = turret
         
+    def run(self):
         
-    def readSerial(self, serialPort):
-        data = serialPort.readline()
-        return data
+        comms = serial.Serial("/dev/serial0", baudrate=9600, timeout=1)
         
-
-        
+        while True:
+            
+            try:
+                ctrl = comms.readline()
+                
+                rover_flag = Rover.controls(ctrl)
+                
+                if rover_flag == 1:
+                    print("Send message to app")
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            except KeyboardInterrupt:
+                break
+            
