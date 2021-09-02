@@ -9,7 +9,30 @@ GPIO.setwarnings(False)
 led1 = 23
 led2 = 24
 
+motorA = 17
+motorA_in1 = 27
+motorA_in2 = 22
+motorB = 26
+motorB_in1 = 5
+motorB_in2 = 6
 
+
+def motorMove(enPin, in1, in2, duty, t):
+    GPIO.setup(enPin, GPIO.OUT)
+    GPIO.setup(in1, GPIO.OUT)
+    GPIO.setup(in2, GPIO.OUT)
+    p = GPIO.PWM(enPin, 1000)
+    p.start(0)
+    
+    GPIO.output(in1, GPIO.LOW)
+    GPIO.output(in2, GPIO.HIGH)
+    p.ChangeDutyCycle(duty)
+    
+    time.sleep(t)
+    
+    GPIO.output(in2, GPIO.LOW)
+
+    
 def ledon(led, t):
     GPIO.setup(led, GPIO.OUT)
     GPIO.output(led, GPIO.HIGH)
@@ -21,11 +44,11 @@ def ledon(led, t):
 if __name__ == '__main__':
     jobs = []
 
-    p1 = multiprocessing.Process(target=ledon, args=(led1, 2,))
+    p1 = multiprocessing.Process(target=motorMove, args=(motorA, motorA_in1, motorA_in2,  10, 5))
     jobs.append(p1)
     p1.start()
     
-    p2 = multiprocessing.Process(target=ledon, args=(led2, 3,))
+    p2 = multiprocessing.Process(target=motorMove, args=(motorB, motorB_in1, motorB_in2,  20, 3))
     jobs.append(p2)
     p2.start()
     
@@ -33,7 +56,7 @@ if __name__ == '__main__':
     p2.join()
     
     
-    GPIO.cleanup()
+    GPIO.cleanup() 
         
 
     

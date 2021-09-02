@@ -118,8 +118,9 @@ class Rover:
         else:
             valid_flag = 1
             print("Rover controls(): valid flag : false")
-            return valid_flag
-    
+
+        return valid_flag
+
         
         
         

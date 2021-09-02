@@ -16,7 +16,7 @@ class TactBot:
         
     def run(self):
         
-        comms = serial.Serial("/dev/serial0", baudrate=9600, timeout=1)
+        comms = serial.Serial("/dev/serial0", baudrate=9600)
         
         while True:
             
