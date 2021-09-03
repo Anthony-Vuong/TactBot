@@ -136,3 +136,5 @@ the lighting and color shading. Switched to a purple cup, but openCV detected it
 ✔️08/12/2021: Rover updated with steering and throttle. Not tested yet as parts are not in yet.
 
 ✔️08/30/2021: Parts to complete Rover are in - will assemble by end of today. As well as work on multi-processing/threading motor. Should I work on joystick for app?
+
+✔️09/02/2021: Small app updates - can now receive and display messages. Rover updates - multiprocessing 2 motors. Need to design mounting hardware for all devices.
