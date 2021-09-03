@@ -10,7 +10,7 @@
         android:id="@+id/btnStop"
         android:layout_width="114dp"
         android:layout_height="59dp"
-        android:layout_marginTop="528dp"
+        android:layout_marginTop="452dp"
         android:text="@string/stop"
         app:backgroundTint="#FD0B0B"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,23 +22,23 @@
         android:id="@+id/btnRight"
         android:layout_width="114dp"
         android:layout_height="59dp"
-        android:layout_marginTop="528dp"
+        android:layout_marginTop="452dp"
         android:text="@string/right"
         app:backgroundTint="#0777BF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.979"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnBackward"
-        android:layout_width="136dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="640dp"
+        android:layout_width="120dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="532dp"
         android:text="@string/backward"
         app:backgroundTint="#3CFA08"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +46,7 @@
         android:id="@+id/btnForward"
         android:layout_width="114dp"
         android:layout_height="59dp"
-        android:layout_marginTop="424dp"
+        android:layout_marginTop="380dp"
         android:text="@string/forward"
         app:backgroundTint="#50EF0C"
         app:layout_constraintEnd_toEndOf="parent"
@@ -141,11 +141,22 @@
         android:id="@+id/btnLeft"
         android:layout_width="114dp"
         android:layout_height="59dp"
-        android:layout_marginTop="528dp"
+        android:layout_marginTop="452dp"
         android:text="@string/left"
         app:backgroundTint="#0777BF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="298dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="636dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -1,6 +1,7 @@
 package com.example.tactbot;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -17,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -47,6 +49,9 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
     //Global Bluetooth Device
     BluetoothDevice bluetoothDevice;
 
+    TextView incomingMessage;
+    StringBuilder messages;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +69,8 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
 
         //EditText View for Sending Messages
         EditText editText = (EditText) findViewById(R.id.editTextView);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, new IntentFilter("incomingMessage"));
 
         //Button for established connection
         Button btnConnection = (Button)findViewById(R.id.btnConnection);
@@ -167,6 +174,14 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
         IntentFilter pairIntent = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
         registerReceiver(mBroadcastReceiver4, pairIntent);
     }
+
+    BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String text = intent.getStringExtra("theMessage");
+            messages.append(text + "\n");
+        }
+    };
 
 
     /////////////////////////////////// BROADCAST RECEIVER1 /////////////////////////////////////////////////

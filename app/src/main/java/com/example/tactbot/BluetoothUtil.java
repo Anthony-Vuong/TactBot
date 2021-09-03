@@ -6,14 +6,18 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.content.Intent;
 import android.icu.util.Output;
 import android.util.Log;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.UUID;
+
 
 public class BluetoothUtil {
 
@@ -183,6 +187,11 @@ public class BluetoothUtil {
                     bytes = inputStream.read(buffer);
                     String message = new String(buffer, 0, bytes);
                     Log.d(TAG, "Input stream: " + message);
+
+                    Intent incomingMessageIntent = new Intent("Incoming Message");
+                    incomingMessageIntent.putExtra("theMessage", message);
+                    LocalBroadcastManager.getInstance(context).sendBroadcast(incomingMessageIntent);
+
                 } catch (IOException e) {
                     Log.e(TAG, "Error reading to input stream");
 
