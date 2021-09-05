@@ -70,6 +70,8 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
         //EditText View for Sending Messages
         EditText editText = (EditText) findViewById(R.id.editTextView);
 
+        incomingMessage = (TextView)findViewById(R.id.incomingMessages);
+        messages = new StringBuilder();
         LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, new IntentFilter("incomingMessage"));
 
         //Button for established connection
@@ -180,6 +182,8 @@ public class Connectivity extends AppCompatActivity implements AdapterView.OnIte
         public void onReceive(Context context, Intent intent) {
             String text = intent.getStringExtra("theMessage");
             messages.append(text + "\n");
+
+            incomingMessage.setText(messages);
         }
     };
 

@@ -188,7 +188,7 @@ public class BluetoothUtil {
                     String message = new String(buffer, 0, bytes);
                     Log.d(TAG, "Input stream: " + message);
 
-                    Intent incomingMessageIntent = new Intent("Incoming Message");
+                    Intent incomingMessageIntent = new Intent("incomingMessage");
                     incomingMessageIntent.putExtra("theMessage", message);
                     LocalBroadcastManager.getInstance(context).sendBroadcast(incomingMessageIntent);
 
