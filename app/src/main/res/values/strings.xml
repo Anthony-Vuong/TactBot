@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">TactBot</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="forward">Forward</string>
+    <string name="backward">Backward</string>
+    <string name="stop">Stop</string>
+    <string name="connectivity">Connectivity</string>
+    <string name="pilot_mode">PILOT MODE</string>
+    <string name="title_activity_pilot_mode">PilotMode</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="on_off">ON/OFF</string>
+    <string name="discover">Discover</string>
+    <string name="button">Button</string>
+    <string name="DEVICES" />
+    <string name="devices">DEVICES</string>
+    <string name="send">SEND</string>
+    <string name="enter_text_here">Enter text here</string>
+    <string name="this_will_appear_to_the_user_if_he_didn_t_enter_something_yet_in_the_edittext">This will appear to the user if he didn\'t enter something yet in the EditText</string>
+    <string name="yep">Yep</string>
+    <string name="connect">CONNECT</string>
+    <string name="back">Button</string>
+</resources>

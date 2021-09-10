@@ -5,22 +5,11 @@ import time
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-##    @var int $ForwardPin
-##    Pin value for forward direction
-ForwardPin = 12
-
-##    @var int $BackwardPin 
-##    Pin value for backward direction
-BackwardPin = 13
-
-##    @var int $EnablePin 
-##    Pin value for pwm signal
-EnablePin = 14
 
 class Motor:
     ''' Methods and parameters needed to operate motor '''
     
-    def __init__(self, EN_pin, IN1_pin, IN2_pin, timer):
+    def __init__(self, EN_pin, IN1_pin, IN2_pin):
         ''' @brief Motor init function
             @param EN_pin enable pin for motor controller
             @param IN1_pin input signal
@@ -28,10 +17,14 @@ class Motor:
             @details Initializes motor driver object with given parameters
             @return none
         '''
-        self.En_pin = GPIO.setup(EnablePin, GPIO.OUT)
-        self.forward_pin = GPIO.setup(ForwardPin, GPIO.OUT)
-        self.backward_pin = GPIO.setup(BackwardPin, GPIO.OUT)
-        self.speed = GPIO.PWM(self.En_pin, 1000)
+        self.enable_pin = EN_pin
+        self.in1_pin = IN1_pin
+        self.in2_pin = IN2_pin
+        GPIO.setup(EN_pin, GPIO.OUT)
+        GPIO.setup(IN1_pin, GPIO.OUT)
+        GPIO.setup(IN2_pin, GPIO.OUT)
+        self.inMotion = 0
+        self.speed = GPIO.PWM(EN_pin, 1000)
         self.speed.start(0)
         
         
@@ -41,7 +34,7 @@ class Motor:
            @details Set enable pin high, and sets one MD pin low
            @return None
         '''
-        GPIO.output(self.En_pin, GPIO.HIGH)
+        GPIO.output(self.enable_pin, GPIO.HIGH)
         
     def disable(self):
         '''@brief Disable pwm pin
@@ -49,7 +42,7 @@ class Motor:
            @details  Sets enable pin low 
            @return None
         '''
-        GPIO.output(self.En_pin, GPIO.LOW)
+        GPIO.output(self.enable_pin, GPIO.LOW)
         
     def hold(self):
         '''@brief Stops motor
@@ -58,8 +51,9 @@ class Motor:
            @return None
         '''
         self.disable()
-        GPIO.output(self.forward_pin, GPIO.LOW)
-        GPIO.output(self.backward_pin, GPIO.LOW)
+        GPIO.output(self.in1_pin, GPIO.LOW)
+        GPIO.output(self.in2_pin, GPIO.LOW)
+        self.inMotion = 0
         
     def cw(self, duty):
         '''@brief Spins motor
@@ -67,9 +61,13 @@ class Motor:
            @details  Setup for motor to spin clockwise(cw)
            @return None
         '''
-        self.enable()
-        GPIO.output(self.backward_pin, GPIO.LOW)
-        GPIO.output(self.forward_pin, GPIO.HIGH)
+        
+        if self.inMotion == 0:
+            self.enable()
+            GPIO.output(self.in1_pin, GPIO.LOW)
+            GPIO.output(self.in2_pin, GPIO.HIGH)
+            self.inMotion = 1
+            
         self.speed.ChangeDutyCycle(duty)
 
      
@@ -79,9 +77,12 @@ class Motor:
            @details  Setup for motor to spin counter-clockwise(ccw)
            @return None
         '''
-        self.enable()
-        GPIO.output(self.backward_pin, GPIO.HIGH)
-        GPIO.output(self.forward_pin, GPIO.LOW)
+        if self.inMotion == 0:
+            self.enable()
+            GPIO.output(self.in1_pin, GPIO.HIGH)
+            GPIO.output(self.in2_pin, GPIO.LOW)
+            self.inMotion = 1
+            
         self.speed.ChangeDutyCycle(duty)
 
         

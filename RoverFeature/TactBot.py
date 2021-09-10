@@ -6,13 +6,13 @@
 '''
 
 import serial
-import Rover
-import Turret
+import Rover as Rover
+import Turret as Turret
 
 class TactBot:
     def __init__(self, rover, turret):
-        self.rover = rover
-        self.turret = turret
+        self.rover = Rover()
+        self.turret = Turret()
         
     def run(self):
         
@@ -27,13 +27,6 @@ class TactBot:
                 
                 if rover_flag == 1:
                     print("Send message to app")
-                
-                
-                
-                
-                
-                
-                
                 
                 
             except KeyboardInterrupt:

@@ -8,6 +8,7 @@ import RPi.gpio as GPIO
 import motor.Motor as Motor
 import servo.Servo as Servo
 import time
+from multiprocessing import Process
 
 ##    @var int $dir_forward 
 ##    An int value representing forward flag
@@ -21,9 +22,15 @@ dir_backward = -1
 ##    An int value representing stop flag
 dir_stop = 0
 
+throttle_En = 25
+throttle_in1 = 23
+throttle_in2 = 24
 
-class Rover:
-    def __init__(self, steerPin, throttlePin):
+steering_pin = 17
+
+
+class Rover(Process):
+    def __init__(self):
         ''' @brief Rover init function
             @param throttleMotor Motor object for controlling rover throttle
             @param steeringServo Servo object for controlling rover steering
@@ -32,10 +39,42 @@ class Rover:
             @details Initializes rover object with given parameters
             @return none
         '''
-        self.throttleMotor = Motor()
-        self.steeringServo = Servo()
+        super(Rover, self).__init__()
+        self.throttleMotor = Motor(throttle_En, throttle_in1, throttle_in2)
+        self.steeringServo = Servo(steering_pin)
         self.currentStatus = dir_stop
         self.currentSpeed = 0
+        self.currentDirection = 45
+        
+    
+    def controls(self, data):
+        '''@brief Rover controls
+           @param data An int value indicating specific control
+           @details Controls rover direction and speed upon every call
+           @return None
+        '''
+        valid_flag = 0 
+         
+        if(data == '1'):
+            #throttle straight
+            self.forward()
+        elif(data == '2'):
+            #steer right
+            self.steer_right()
+        elif(data == '3'):
+            #throttle back
+            self.backward()
+        elif(data == '4'):
+            #steer left
+            self.steer_left()
+        elif(data == '5'):
+            #STOP
+            self.stop()
+        else:
+            valid_flag = 1
+            print("Rover controls(): valid flag : false")
+
+        return valid_flag
         
     def stop(self):
         '''@brief Stop rover
@@ -81,7 +120,9 @@ class Rover:
            @details Moves rover in a right-direction and increases turning degree every call to function
            @return None
         '''
-        pass
+        if self.currentDirection < 65:
+            self.currentDirection = self.currentDirection + 10
+            self.steeringServo.calc_angle(self.currentDirection)
     
     def steer_left(self):
         '''@brief Turns rover left
@@ -89,37 +130,14 @@ class Rover:
            @details Moves rover in a left-direction and increases turning degree every call to function
            @return None
         '''
-        pass
+        if self.currentDirection > 25:
+            self.currentDirection = self.currentDirection - 10
+            self.steeringServo.calc_angle(self.currentDirection)
 
     
-    def controls(self, data):
-        '''@brief Rover controls
-           @param data An int value indicating specific control
-           @details Controls rover direction and speed upon every call
-           @return None
-        '''
-        valid_flag = 0 
-         
-        if(data == '1'):
-            #throttle straight
-            self.forward()
-        elif(data == '2'):
-            #steer right
-            self.steer_right()
-        elif(data == '3'):
-            #throttle back
-            self.backward()
-        elif(data == '4'):
-            #steer left
-            self.steer_left()
-        elif(data == '5'):
-            #STOP
-            self.stop()
-        else:
-            valid_flag = 1
-            print("Rover controls(): valid flag : false")
-
-        return valid_flag
+    
+    
+    
 
         
         

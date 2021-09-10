@@ -8,6 +8,7 @@ import cv2
 import time
 import os
 import RPi.GPIO as GPIO
+import servo as Servo
 
 panServo = 27
 tiltServo = 17
@@ -32,9 +33,9 @@ def mapServoPos(x, y):
 		posServo(panServo, panAngle)	
 
 	if(x > 280):
-                panAngle -= 10
-                if panAngle < 40:
-                        panAngle = 40
+            panAngle -= 10
+            if panAngle < 40:
+                panAngle = 40
                 posServo(panServo, panAngle) 
 
 	if(y < 160):
