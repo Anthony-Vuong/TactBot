@@ -146,3 +146,5 @@ the lighting and color shading. Switched to a purple cup, but openCV detected it
 ✔️09/09/2021: Joystick testing, updates to throttle and steer controls. Mounting all components together - working on the ERGO!
 
 ✔️09/12/2021: More updates for Joystick in TactBot App
+
+✔️09/13/2021: Git test
