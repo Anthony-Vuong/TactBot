@@ -1,19 +1,13 @@
-'''@file                    TactBot.py
-   @brief                   Brief doc for serialBot.py
-   @details                 Detailed doc for serialBot.py 
-   @author                  Anthony Vuong, Pedro Muñoz-Rodriguez
-   @date                    June 18, 2021
-'''
+# coding=utf-8
 
 import serial
-import Rover as Rover
-import Turret as Turret
+import Rover
+
 
 class TactBot:
-    def __init__(self, rover, turret):
-        self.rover = Rover()
-        self.turret = Turret()
-        
+    def __init__(self):
+        self.rov = Rover.Rover()
+    
     def run(self):
         
         comms = serial.Serial("/dev/serial0", baudrate=9600)
@@ -32,3 +26,11 @@ class TactBot:
             except KeyboardInterrupt:
                 break
             
+if __name__ == "__main__":
+
+
+
+	t = TactBot()
+
+
+	t.run()

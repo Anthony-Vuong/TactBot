@@ -1,7 +1,7 @@
 '''@file                    servo.py
    @brief                   Brief doc for servo.py
    @details                 Detailed doc for servo.py 
-   @author                  Anthony Vuong, Pedro Muñoz-Rodriguez
+   @author                  Anthony Vuong, Pedro Munoz-Rodriguez
    @date                    August 12, 2021
 '''
 import RPi.GPIO as GPIO

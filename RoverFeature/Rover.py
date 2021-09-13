@@ -1,14 +1,13 @@
 '''@file                    Rover.py
    @brief                   Brief doc for Rover.py
    @details                 Detailed doc for Rover.py 
-   @author                  Anthony Vuong, Pedro Muñoz-Rodriguez
+   @author                  Anthony Vuong, Pedro Munoz-Rodriguez
    @date                    June 18, 2021
 '''
-import RPi.gpio as GPIO
-import motor.Motor as Motor
-import servo.Servo as Servo
+import RPi.GPIO as GPIO
+import motor as Motor
+import servo as Servo
 import time
-from multiprocessing import Process
 
 ##    @var int $dir_forward 
 ##    An int value representing forward flag
@@ -29,7 +28,7 @@ throttle_in2 = 24
 steering_pin = 17
 
 
-class Rover(Process):
+class Rover():
     def __init__(self):
         ''' @brief Rover init function
             @param throttleMotor Motor object for controlling rover throttle
@@ -39,7 +38,6 @@ class Rover(Process):
             @details Initializes rover object with given parameters
             @return none
         '''
-        super(Rover, self).__init__()
         self.throttleMotor = Motor(throttle_En, throttle_in1, throttle_in2)
         self.steeringServo = Servo(steering_pin)
         self.currentStatus = dir_stop
