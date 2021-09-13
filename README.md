@@ -144,3 +144,5 @@ the lighting and color shading. Switched to a purple cup, but openCV detected it
 ✔️09/07/2021: Rover basic functions implemented - in testing. Turret currently in development.
 
 ✔️09/09/2021: Joystick testing, updates to throttle and steer controls. Mounting all components together - working on the ERGO!
+
+✔️09/12/2021: More updates for Joystick in TactBot App
