@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
-public class PilotMode extends AppCompatActivity {
+public class PilotMode extends AppCompatActivity implements JoyStick.JoystickListener {
 
 
     @Override
@@ -24,6 +24,13 @@ public class PilotMode extends AppCompatActivity {
         setContentView(js);
 
 
+
+
+    }
+
+    @Override
+    public void onJoystickMoved(float xPercent, float yPercent, int id) {
+        Log.d("Main Method", "X percent: " + xPercent + " Y percent: " + yPercent);
 
 
     }
