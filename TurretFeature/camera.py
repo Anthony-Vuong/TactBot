@@ -50,17 +50,17 @@ class camera:
     		self.posServo(tiltServo, self.tiltAngle)
     
     	if(y > 210):
-            tiltAngle -= 10
-            if tiltAngle < 40:
-                    tiltAngle = 40
-            self.posServo(tiltServo, tiltAngle)
+            self.tiltAngle -= 10
+            if self.tiltAngle < 40:
+                    self.tiltAngle = 40
+            self.posServo(tiltServo, self.tiltAngle)
     
     
     def mapObjectPos(self, x, y):
     	print("x0 = {0} and y0 = {1}".format(x, y))
     
     def start(self):
-        print("Camera starting...")
+        #print("Camera starting...")
         vs = VideoStream(0).start()
         time.sleep(2.0)
     
@@ -70,13 +70,11 @@ class camera:
         GPIO.output(redLed, GPIO.LOW)
         ledOn = False
     
-        global panAngle
-        panAngle = 90
-        global tiltAngle
-        tiltAngle = 90
+        self.panAngle = 90
+        self.tiltAngle = 90
     
-        self.posServo(panServo, panAngle)
-        self.posServo(tiltServo, tiltAngle)
+        self.posServo(panServo, self.panAngle)
+        self.posServo(tiltServo, self.tiltAngle)
     
         while(True):
             
@@ -130,3 +128,8 @@ class camera:
         vs.stop()
         GPIO.cleanup()
         cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    c = camera()
+    
+    c.start()
