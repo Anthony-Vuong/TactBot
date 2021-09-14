@@ -1,13 +1,13 @@
 # coding=utf-8
 
 import serial
-import Rover
 import RPi.GPIO as GPIO
+import turret
 
 
 class TactBot:
     def __init__(self):
-        self.rov = Rover.Rover()
+        self.tur = turret()
     
     def run(self):
         
@@ -18,8 +18,10 @@ class TactBot:
             try:
                 ctrl = comms.readline()
 		                
+                if ctrl == "9":
+                    self.tur.start()
 
-                rover_flag = self.rov.controls(ctrl)
+                #rover_flag = self.rov.controls(ctrl)
                 
                 #if rover_flag == 1:
                    # print("Send message to app")

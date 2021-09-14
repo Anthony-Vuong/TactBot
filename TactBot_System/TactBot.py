@@ -26,7 +26,7 @@ class TactBot:
                 
                 
             except KeyboardInterrupt:
-                comms.close()
+		comms.close()
                 break
             
 if __name__ == "__main__":
