@@ -5,8 +5,8 @@
    @date                    June 18, 2021
 '''
 import RPi.GPIO as GPIO
-import motor as Motor
-import servo as Servo
+import motor
+import servo 
 import time
 
 ##    @var int $dir_forward 
@@ -38,10 +38,10 @@ class Rover():
             @details Initializes rover object with given parameters
             @return none
         '''
-        self.throttleMotor = Motor(throttle_En, throttle_in1, throttle_in2)
-        self.steeringServo = Servo(steering_pin)
+        self.throttleMotor = motor.Motor(throttle_En, throttle_in1, throttle_in2)
+        self.steeringServo = servo.Servo(steering_pin)
         self.currentStatus = dir_stop
-        self.currentSpeed = 0
+        self.currentSpeed = 10
         self.currentDirection = 45
         
     
@@ -55,6 +55,7 @@ class Rover():
          
         if(data == '1'):
             #throttle straight
+	    print("1")
             self.forward()
         elif(data == '2'):
             #steer right
@@ -67,10 +68,11 @@ class Rover():
             self.steer_left()
         elif(data == '5'):
             #STOP
+	    print("5")
             self.stop()
         else:
             valid_flag = 1
-            print("Rover controls(): valid flag : false")
+            #print("Rover controls(): valid flag : false")
 
         return valid_flag
         
@@ -80,7 +82,7 @@ class Rover():
            @details Disables all pins, sets currentStatus=0, and set currentSpeed=0
            @return None
         '''
-        self.throttleMotor.spin(0)
+        self.throttleMotor.hold()
         self.currentStatus = dir_stop
         self.currentSpeed = 0
 
@@ -131,13 +133,3 @@ class Rover():
         if self.currentDirection > 25:
             self.currentDirection = self.currentDirection - 10
             self.steeringServo.calc_angle(self.currentDirection)
-
-    
-    
-    
-    
-
-        
-        
-        
-            

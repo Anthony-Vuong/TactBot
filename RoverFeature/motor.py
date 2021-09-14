@@ -24,7 +24,7 @@ class Motor:
         GPIO.setup(IN1_pin, GPIO.OUT)
         GPIO.setup(IN2_pin, GPIO.OUT)
         self.inMotion = 0
-        self.speed = GPIO.PWM(EN_pin, 1000)
+        self.speed = GPIO.PWM(EN_pin, 50)
         self.speed.start(0)
         
         

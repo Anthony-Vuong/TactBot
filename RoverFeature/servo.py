@@ -20,8 +20,8 @@ class Servo:
             @return none
         '''
         self.steeringPin = steeringPin
-        self.steer = GPIO(steeringPin, GPIO.OUT)
-        self.steerAngle = GPIO.PWM(self.steer, 50)
+        self.steer = GPIO.setup(steeringPin, GPIO.OUT)
+        self.steerAngle = GPIO.PWM(self.steeringPin, 50)
         self.steerAngle.start(0)
         
     def calc_angle(self, angle):
