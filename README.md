@@ -147,4 +147,4 @@ the lighting and color shading. Switched to a purple cup, but openCV detected it
 
 ✔️09/12/2021: More updates for Joystick in TactBot App
 
-✔️09/13/2021: Git test
+✔️09/13/2021: Git test  - RPI4 Git working again. Rover feature basic functionality tested - is good! Working on turret class - implementing camera and detection system. Calling newest update v1.1
