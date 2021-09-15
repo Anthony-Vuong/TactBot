@@ -39,7 +39,7 @@ class Rover():
             @return none
         '''
         self.throttleMotor = motor.Motor(throttle_En, throttle_in1, throttle_in2)
-        self.steeringServo = servo.Servo(steering_pin)
+        self.steeringServo = servo.Servo(steering_pin, 45)
         self.currentStatus = dir_stop
         self.currentSpeed = 10
         self.currentDirection = 45
@@ -59,12 +59,15 @@ class Rover():
             self.forward()
         elif(data == '2'):
             #steer right
+	    print("2")
             self.steer_right()
         elif(data == '3'):
             #throttle back
+	    print("3")
             self.backward()
         elif(data == '4'):
             #steer left
+	    print("4")
             self.steer_left()
         elif(data == '5'):
             #STOP

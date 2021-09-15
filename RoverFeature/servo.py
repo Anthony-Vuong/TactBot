@@ -12,7 +12,7 @@ GPIO.setwarnings(False)
 
 
 class Servo:
-    def __init__(self, steeringPin):
+    def __init__(self, steeringPin, startDuty):
         ''' @brief Servo init function
             @param steer Steering pin for motor controller
             @param steerAngle pin input signal
@@ -22,7 +22,7 @@ class Servo:
         self.steeringPin = steeringPin
         self.steer = GPIO.setup(steeringPin, GPIO.OUT)
         self.steerAngle = GPIO.PWM(self.steeringPin, 50)
-        self.steerAngle.start(0)
+        self.steerAngle.start(startDuty)
         
     def calc_angle(self, angle):
         '''@brief Calculate servo angle

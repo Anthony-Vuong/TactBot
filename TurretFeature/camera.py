@@ -9,8 +9,8 @@ import os
 import RPi.GPIO as GPIO
 import servo
 
-panServo = servo.Servo(27)
-tiltServo = servo.Servo(17)
+panServo = servo.Servo(19)
+tiltServo = servo.Servo(26)
 redLed = 21
 
 GPIO.setwarnings(False)
@@ -44,13 +44,13 @@ class camera:
                 self.posServo(panServo, self.panAngle) 
     
     	if(y < 160):
-    		self.tiltAngle += 10
+    		self.tiltAngle -= 10
     		if self.tiltAngle > 140:
     			self.tiltAngle = 140
     		self.posServo(tiltServo, self.tiltAngle)
     
     	if(y > 210):
-            self.tiltAngle -= 10
+            self.tiltAngle += 10
             if self.tiltAngle < 40:
                     self.tiltAngle = 40
             self.posServo(tiltServo, self.tiltAngle)

@@ -1,4 +1,3 @@
-# coding=utf-8
 
 import serial
 import Rover
@@ -27,6 +26,7 @@ class TactBot:
                 
             except KeyboardInterrupt:
                 comms.close()
+		print("break")
                 break
             
 if __name__ == "__main__":
