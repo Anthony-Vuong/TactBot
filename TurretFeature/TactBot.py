@@ -3,11 +3,13 @@
 import serial
 import RPi.GPIO as GPIO
 import turret
+import Rover
 
 
 class TactBot:
     def __init__(self):
         self.tur = turret()
+        self.rov = Rover()
     
     def run(self):
         
@@ -16,29 +18,31 @@ class TactBot:
         while True:
             
             try:
-                ctrl = comms.readline()
+                ctrl = ord(comms.readline())
 		                
-                if ctrl == "9":
+                
+                if ctrl == 9:
                     self.tur.start()
 
-                #rover_flag = self.rov.controls(ctrl)
+                if ctrl > 0 and ctrl < 6:
+                    rover_flag = self.rov.controls(ctrl)
                 
-                #if rover_flag == 1:
-                   # print("Send message to app")
+                if rover_flag == 1:
+                   print("")
                 
                 
             except KeyboardInterrupt:
                 comms.close()
                 break
             
-if __name__ == "__main__":
+#if __name__ == "__main__":
 
 
 
-	t = TactBot()
+#	t = TactBot()
 
 
-	t.run()
+#	t.run()
 
-	GPIO.cleanup()
+#	GPIO.cleanup()
 

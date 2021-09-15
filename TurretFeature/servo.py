@@ -12,17 +12,25 @@ GPIO.setwarnings(False)
 
 
 class Servo:
-    def __init__(self, steeringPin, startDuty):
+    def __init__(self, servoPin, startDuty=0, turret=False):
         ''' @brief Servo init function
             @param steer Steering pin for motor controller
             @param steerAngle pin input signal
             @details Initializes servo driver object with given parameters
             @return none
         '''
-        self.steeringPin = steeringPin
-        self.steer = GPIO.setup(steeringPin, GPIO.OUT)
-        self.steerAngle = GPIO.PWM(self.steeringPin, 50)
-        self.steerAngle.start(startDuty)
+        if turret == False:
+            self.steeringPin = servoPin
+            self.steer = GPIO.setup(servoPin, GPIO.OUT)
+            self.steerAngle = GPIO.PWM(self.steeringPin, 50)
+            self.steerAngle.start(startDuty)
+        else:
+            self.turretServoPin = servoPin
+            self.turretAngle = GPIO.PWM(self.turretServoPin, 50)
+            self.turretAngle.start(8)
+            
+            
+            
         
     def calc_angle(self, angle):
         '''@brief Calculate servo angle
@@ -38,7 +46,11 @@ class Servo:
         self.steerAngle.ChangeDutyCycle(duty)
 
     def turret_angle(self, servo, angle):
-	pwm = GPIO.PWM()
+         assert angle >=30 and angle <= 150
+         dutyCycle = angle / 18. + 3.
+         self.turretAngle.ChangeDutyCycle(dutyCycle)
+         time.sleep(0.3)
+         self.turretAngle.stop()
         
         
         
