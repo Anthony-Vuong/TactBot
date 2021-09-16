@@ -4,6 +4,7 @@ import serial
 import RPi.GPIO as GPIO
 import turret
 import Rover
+import time
 
 
 class TactBot:
@@ -11,6 +12,7 @@ class TactBot:
         self.tur = turret()
         self.rov = Rover()
         self.targetFound = 0
+        self.msg = ""
     
     def run(self):
         
@@ -23,21 +25,24 @@ class TactBot:
 		                
                 
                 if ctrl == 9:
+                   self.rov.controls(5)
                    self.targetFound = self.tur.locate()
                    if self.targetFound == 1:
-                       data += "1"
-                       comms.write(data.encode())
+                       self.msg += "Target Found. Engage?"
+                       comms.write(self.msg.encode())
+                       self.msg = ""
 
                 if ctrl == 8:
                     self.tur.laser()
-                    time.sleep(2)
-                    data += "Target Destroyed"
-                    comms.write(data.encode())
+                    time.sleep(3)
+                    self.msg += "Target Destroyed"
+                    comms.write(self.msg.encode())
+                    self.msg = ""
 
                 if ctrl == 7:
-                    data += "Fire mission aborted"
-                    time.sleep(2)
-                    comms.write(data.encode())
+                    self.msg += "Fire mission aborted"
+                    comms.write(self.msg.encode())
+                    self.msg = ""
 
                 if ctrl > 0 and ctrl < 6:
                     rover_flag = self.rov.controls(ctrl)
@@ -50,14 +55,14 @@ class TactBot:
                 comms.close()
                 break
 
-#if __name__ == "__main__":
+if __name__ == "__main__":
 
 
 
-#	t = TactBot()
+	t = TactBot()
 
 
-#	t.run()
+	t.run()
 
-#	GPIO.cleanup()
+	GPIO.cleanup()
 
