@@ -10,6 +10,7 @@ class TactBot:
     def __init__(self):
         self.tur = turret()
         self.rov = Rover()
+        self.targetFound = 0
     
     def run(self):
         
@@ -22,19 +23,33 @@ class TactBot:
 		                
                 
                 if ctrl == 9:
-                    self.tur.start()
+                   self.targetFound = self.tur.locate()
+                   if self.targetFound == 1:
+                       data += "1"
+                       comms.write(data.encode())
+
+                if ctrl == 8:
+                    self.tur.laser()
+                    time.sleep(2)
+                    data += "Target Destroyed"
+                    comms.write(data.encode())
+
+                if ctrl == 7:
+                    data += "Fire mission aborted"
+                    time.sleep(2)
+                    comms.write(data.encode())
 
                 if ctrl > 0 and ctrl < 6:
                     rover_flag = self.rov.controls(ctrl)
-                
+
                 if rover_flag == 1:
-                   print("")
-                
-                
+                    print("")
+
+
             except KeyboardInterrupt:
                 comms.close()
                 break
-            
+
 #if __name__ == "__main__":
 
 

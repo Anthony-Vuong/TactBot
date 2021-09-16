@@ -26,12 +26,9 @@ class Servo:
             self.steerAngle.start(startDuty)
         else:
             self.turretServoPin = servoPin
-            self.turretAngle = GPIO.PWM(self.turretServoPin, 50)
-            self.turretAngle.start(8)
-            
-            
-            
-        
+            self.turretAngle = GPIO.PWM(servoPin, 50)
+            self.turretAngle.start(startDuty)
+
     def calc_angle(self, angle):
         '''@brief Calculate servo angle
            @param angle The desired servo angle
@@ -45,12 +42,8 @@ class Servo:
         GPIO.output(self.steeringPin, False)
         self.steerAngle.ChangeDutyCycle(duty)
 
-    def turret_angle(self, servo, angle):
-         assert angle >=30 and angle <= 150
-         dutyCycle = angle / 18. + 3.
-         self.turretAngle.ChangeDutyCycle(dutyCycle)
-         time.sleep(0.3)
-         self.turretAngle.stop()
-        
-        
-        
+    def turret_angle(self, angle):
+        dutyCycle = angle / 18. + 3.
+        self.turretAngle.ChangeDutyCycle(dutyCycle)
+        time.sleep(0.3)
+
