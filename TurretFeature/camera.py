@@ -20,7 +20,7 @@ class Camera:
     
     def __init__(self):
         self.panAngle = 90
-        self.tiltAngle = 30
+        self.tiltAngle = 90
         self.located = 0
         self.temp = 0
         self.temp2 = 0
@@ -30,8 +30,7 @@ class Camera:
         self.panServo = servo.Servo(19, self.panAngle, True)
         self.tilt = GPIO.setup(26, GPIO.OUT)
         self.tiltServo = servo.Servo(26, self.tiltAngle, True)
-        self.ledPin = 21
-        self.redLed = GPIO.setup(self.ledPin, GPIO.OUT)
+
         self.colorLow = (110, 100, 100)
         self.colorUpp = (130, 255, 255)
 
@@ -77,7 +76,7 @@ class Camera:
         ledOn = False
     
         self.panAngle = 90 
-        self.tiltAngle = 30
+        self.tiltAngle = 90
     
         self.posServo(self.panServo, self.panAngle)
         self.posServo(self.tiltServo, self.tiltAngle)
@@ -126,12 +125,11 @@ class Camera:
                     
 
                     if not ledOn:
-                        GPIO.output(self.ledPin, GPIO.HIGH)
                         ledOn = True
     
             elif ledOn:
                 self.temp2 = self.temp2 + 1
-                GPIO.output(self.ledPin, GPIO.LOW)	
+            
                 ledOn = False
                 if self.temp2 == 100:
                    temp2 = 0
@@ -149,7 +147,7 @@ class Camera:
         #self.posServo(self.panServo, 90)
         #self.posServo(self.tiltServo, 90)
         vs.stop()
-        GPIO.cleanup()
+        #GPIO.cleanup()
         cv2.destroyAllWindows()
 
         return self.located

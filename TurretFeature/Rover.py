@@ -9,6 +9,8 @@ import motor
 import servo 
 import time
 
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
 ##    @var int $dir_forward 
 ##    An int value representing forward flag
 dir_forward = 1
@@ -53,23 +55,23 @@ class Rover():
         '''
         valid_flag = 0 
          
-        if(data == 1):
+        if(data == "1"):
             #throttle straight
             print("1")
             self.forward()
-        elif(data == 2):
+        elif(data == "2"):
             #steer right
             print("2")
             self.steer_right()
-        elif(data == 3):
+        elif(data == "3"):
             #throttle back
             print("3")
             self.backward()
-        elif(data == 4):
+        elif(data == "4"):
             #steer left
             print("4")
             self.steer_left()
-        elif(data == 5):
+        elif(data == "5"):
             #STOP
             print("5")
             self.stop()

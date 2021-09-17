@@ -27,7 +27,7 @@ class Servo:
         else:
             self.turretServoPin = servoPin
             self.turretAngle = GPIO.PWM(servoPin, 50)
-            self.turretAngle.start(startDuty)
+            self.turretAngle.start(90)
 
     def calc_angle(self, angle):
         '''@brief Calculate servo angle

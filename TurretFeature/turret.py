@@ -6,17 +6,15 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
 
-redLed = 21
-
-
 class Turret:
 
     def __init__(self):
-        self.redLed = redLed
         self.cam = camera.Camera()
         self.onTarget = 0
-        self.led = redLed
-        GPIO.setup(redLed, GPIO.OUT)
+        self.led = 21
+        GPIO.setup(self.led, GPIO.OUT)
+        self.laserBeam = GPIO.PWM(self.led, 100)
+        self.laserBeam.start(0)
 
         
     def locate(self):
@@ -26,18 +24,12 @@ class Turret:
         return self.onTarget
     
     def laser(self):
-        GPIO.OUTPUT(redLed, GPIO.HIGH)
+        self.laserBeam.ChangeDutyCycle(20)
         time.sleep(1)
-        GPIO.OUTPUT(redLed, GPIO.LOW)
+        self.laserBeam.ChangeDutyCycle(0)
         time.sleep(1)
-        GPIO.OUTPUT(redLed, GPIO.HIGH)
+        self.laserBeam.ChangeDutyCycle(20)
         time.sleep(1)
-        GPIO.OUTPUT(redLed, GPIO.LOW)
-       
-        
-        
-        
+        self.laserBeam.ChangeDutyCycle(0)
 
-    
-    
 
