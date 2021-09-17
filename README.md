@@ -149,4 +149,6 @@ the lighting and color shading. Switched to a purple cup, but openCV detected it
 
 ✔️09/13/2021: Git test  - RPI4 Git working again. Rover feature basic functionality tested - is good! Working on turret class - implementing camera and detection system. Calling newest update v1.1
 
-✔️09/13/2021: v1.4 Updates: Turret Feature module tested - not smooth but works! Will implement to Tactbot System tomorrow.
+✔️09/15/2021: v1.4 Updates: Turret Feature module tested - not smooth but works! Will implement to Tactbot System tomorrow.
+
+✔️09/16/2021: v1.7 Turret succesffuly implemented into tactbot system. Needs fine tuning but functional.
