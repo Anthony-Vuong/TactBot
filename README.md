@@ -7,14 +7,16 @@ Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
 Development Status:
                   
-                     App: On Hold 🔴
+                     App: Testing 🔵
                   
-                   Rover: In Development 🟡
+                   Rover: Testing 🔵
                   
-                  Turret: In Development 🟡
+                  Turret: Testing 🔵
+                  
+                  🔴🟡🔵
     
     
-                  Updated: 09 - 07 - 2021
+                  Updated: 09 - 20 - 2021
 
 
 ✔️11/15/2020: MainActivity Updated with Broadcast Receiver
