@@ -152,3 +152,13 @@ the lighting and color shading. Switched to a purple cup, but openCV detected it
 ✔️09/15/2021: v1.4 Updates: Turret Feature module tested - not smooth but works! Will implement to Tactbot System tomorrow.
 
 ✔️09/16/2021: v1.7 Turret succesffuly implemented into tactbot system. Needs fine tuning but functional.
+
+✔️09/16/2021: v1.9 - Ready to demo - using App, throttle and steering control, turret scan. 
+
+Future plans:
+            
+                    - Wireless communcation, no bluetooth, switch to using RPI as network Access Point
+                    - Implementing Nucleo MCU to control sensors
+                    - Using Nucleo to include distance sensors and angular sensor(Gyroscope)
+                    - Switching from Android Smartphone to Android Tablet
+                    - Provide night vision for stealth operations and a led light for low light areas.
