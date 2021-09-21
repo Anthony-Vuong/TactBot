@@ -162,5 +162,5 @@ Future plans:
                     - Wireless communcation, no bluetooth, switch to using RPI as network Access Point
                     - Implementing Nucleo MCU to control sensors
                     - Using Nucleo to include distance sensors and angular sensor(Gyroscope)
-                    - Switching from Android Smartphone to Android Tablet
+                    - Switching from Android Smartphone to Android Tablet - more room for joystick controls
                     - Provide night vision for stealth operations and a led light for low light areas.
