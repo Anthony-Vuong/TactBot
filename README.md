@@ -155,7 +155,7 @@ the lighting and color shading. Switched to a purple cup, but openCV detected it
 
 ✔️09/16/2021: v1.7 Turret succesffuly implemented into tactbot system. Needs fine tuning but functional.
 
-✔️09/16/2021: v1.9 - Ready to demo - using App, throttle and steering control, turret scan. 
+✔️09/17/2021: v1.9 - Ready to demo - using App, throttle and steering control, turret scan. 
 
 Future plans:
             
@@ -164,3 +164,5 @@ Future plans:
                     - Using Nucleo to include distance sensors and angular sensor(Gyroscope)
                     - Switching from Android Smartphone to Android Tablet - more room for joystick controls
                     - Provide night vision for stealth operations and a led light for low light areas.
+                    
+✔️09/21/2021: Laser beam testing on purple balloons. If doesn't pop atleast it'll look cool. 
