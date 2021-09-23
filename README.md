@@ -166,3 +166,5 @@ Future plans:
                     - Provide night vision for stealth operations and a led light for low light areas.
                     
 ✔️09/21/2021: Laser beam testing on purple balloons. If doesn't pop atleast it'll look cool. 
+
+✔️09/22/2021: Received Arducam dual camera adapter and v1 Pi Cam. Waiting on Pimoroni Neopixel led lamp and night vision camera. Giving TactBot darkness/stealth feature.
