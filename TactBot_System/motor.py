@@ -1,13 +1,19 @@
+'''@file                    motor.py
+   @brief                   Brief doc for motor.py
+   @details                 Detailed doc for motor.py 
+   @author                  Anthony Vuong, Pedro Munoz-Rodriguez
+   @date                    June 18, 2021
+'''
 import RPi.GPIO as GPIO
-import numpy as np
-import time
+
+
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 
 class Motor:
-    ''' Methods and parameters needed to operate motor '''
+    ''' @brief       Methods and parameters needed to operate motor '''
     
     def __init__(self, EN_pin, IN1_pin, IN2_pin):
         ''' @brief Motor init function

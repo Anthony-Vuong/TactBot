@@ -12,18 +12,25 @@ GPIO.setwarnings(False)
 
 
 class Servo:
-    def __init__(self, steeringPin):
+    ''' @brief      This class gives functionality to the Turret System (SG90 Servos) and MG996 Servo for the steering system.
+    '''
+    def __init__(self, servoPin, startDuty=0, turret=False):
         ''' @brief Servo init function
             @param steer Steering pin for motor controller
             @param steerAngle pin input signal
             @details Initializes servo driver object with given parameters
             @return none
         '''
-        self.steeringPin = steeringPin
-        self.steer = GPIO.setup(steeringPin, GPIO.OUT)
-        self.steerAngle = GPIO.PWM(self.steeringPin, 50)
-        self.steerAngle.start(0)
-        
+        if turret == False:
+            self.steeringPin = servoPin
+            self.steer = GPIO.setup(servoPin, GPIO.OUT)
+            self.steerAngle = GPIO.PWM(self.steeringPin, 50)
+            self.steerAngle.start(startDuty)
+        else:
+            self.turretServoPin = servoPin
+            self.turretAngle = GPIO.PWM(servoPin, 50)
+            self.turretAngle.start(90)
+
     def calc_angle(self, angle):
         '''@brief Calculate servo angle
            @param angle The desired servo angle
@@ -36,6 +43,14 @@ class Servo:
         time.sleep(1)
         GPIO.output(self.steeringPin, False)
         self.steerAngle.ChangeDutyCycle(duty)
-        
-        
-        
+
+    def turret_angle(self, angle):
+        '''@brief Calculate servo angle for turret system
+           @param angle The desired servo angle
+           @details Calculates the position of the servo by computing the angle
+           @return None
+        '''
+        dutyCycle = angle / 18. + 3.
+        self.turretAngle.ChangeDutyCycle(dutyCycle)
+        time.sleep(0.3)
+

@@ -7,14 +7,16 @@ Author: Anthony Vuong, Pedro Muñoz-Rodriguez
 
 Development Status:
                   
-                     App: On Hold 🔴
+                     App: Testing 🔵
                   
-                   Rover: In Development 🟡
+                   Rover: Testing 🔵
                   
-                  Turret: In Development 🟡
+                  Turret: Testing 🔵
+                  
+                  🔴🟡🔵
     
     
-                  Updated: 09 - 07 - 2021
+                  Updated: 09 - 20 - 2021
 
 
 ✔️11/15/2020: MainActivity Updated with Broadcast Receiver
@@ -149,4 +151,20 @@ the lighting and color shading. Switched to a purple cup, but openCV detected it
 
 ✔️09/13/2021: Git test  - RPI4 Git working again. Rover feature basic functionality tested - is good! Working on turret class - implementing camera and detection system. Calling newest update v1.1
 
-✔️09/13/2021: v1.4 Updates: Turret Feature module tested - not smooth but works! Will implement to Tactbot System tomorrow.
+✔️09/15/2021: v1.4 Updates: Turret Feature module tested - not smooth but works! Will implement to Tactbot System tomorrow.
+
+✔️09/16/2021: v1.7 Turret succesffuly implemented into tactbot system. Needs fine tuning but functional.
+
+✔️09/17/2021: v1.9 - Ready to demo - using App, throttle and steering control, turret scan. 
+
+Future plans:
+            
+                    - Wireless communcation, no bluetooth, switch to using RPI as network Access Point
+                    - Implementing Nucleo MCU to control sensors
+                    - Using Nucleo to include distance sensors and angular sensor(Gyroscope)
+                    - Switching from Android Smartphone to Android Tablet - more room for joystick controls
+                    - Provide night vision for stealth operations and a led light for low light areas.
+                    
+✔️09/21/2021: Laser beam testing on purple balloons. If doesn't pop atleast it'll look cool. 
+
+✔️09/22/2021: Received Arducam dual camera adapter and v1 Pi Cam. Waiting on Pimoroni Neopixel led lamp and night vision camera. Giving TactBot darkness/stealth feature.
