@@ -169,4 +169,4 @@ Future plans:
 
 ✔️09/22/2021: Received Arducam dual camera adapter and v1 Pi Cam. Waiting on Pimoroni Neopixel led lamp and night vision camera. Giving TactBot darkness/stealth feature.
 
-✔️09/30/2021: Writing up some module for light feature
+✔️09/30/2021: Writing up some module for light feature. New IDEA: Add a light detecting system - LDR!
