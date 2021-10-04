@@ -5,6 +5,10 @@ import Rover
 #import time
 
 
+safe = "Green"
+onAlert = "Yellow"
+inDanger = "Red"
+
 class TactBot:
     def __init__(self):
         self.tur = turret.Turret()
@@ -13,6 +17,11 @@ class TactBot:
         self.msg = ""
         self.currentCtrl = None
         self.comms = serial.Serial("/dev/serial0", baudrate=9600, timeout=0)
+        self.awareness = safe
+        
+    
+    def getAwareness(self):
+        return self.awareness
         
     def decodeMessage(self, msg):
         #expects a 2 digit number
