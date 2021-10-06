@@ -2,6 +2,7 @@ import serial
 import RPi.GPIO as GPIO
 import turret
 import Rover
+import flashlight
 #import time
 
 
@@ -13,6 +14,7 @@ class TactBot:
     def __init__(self):
         self.tur = turret.Turret()
         self.rov = Rover.Rover()
+        self.fl = flashlight.flashlight()
         self.targetFound = 0
         self.msg = ""
         self.currentCtrl = None
@@ -39,6 +41,9 @@ class TactBot:
             #turret
             self.msg = self.tur.controls(msgList[1], self.rov)
             self.comms.write(self.msg.encode())
+        elif msgList[0] == 2:
+            #lights
+            self.fl.lightControls(msgList[0])
 
         else:
             print("{0}: Ctrl not recoginized", msgList)

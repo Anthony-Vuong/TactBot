@@ -7,23 +7,29 @@ import neopixel
 
 class flashlight:
     def __init__(self):
-        self.numPixels = 1
+        self.numPixels = 10
         self.pixelPin = board.D18
-        self.pixels = (self.pixelPin, self.numPixels)
+        self.currentBrightness = 0.1
+        self.pixels = (self.pixelPin, self.numPixels, self.brightness)
         
     
-    def flash(self):
+    def flash(self, cycles=3):
         #white light flash on and off repeatedly
-        pass
+        i = 0
+        while i < cycles:
+            self.on()
+            time.sleep(0.5)
+            self.off()
     
     def on(self):
         #white light stays on
-        pass
-        
+        for i in range(10):
+            self.pixels[i] = (255, 255, 255)
     
     def off(self):
-        #white stays off
-        pass
+        #white light stays off
+        for i in range(10):
+            self.pixels[i] = (0, 0, 0)
     
     def emergencyLigts(self):
         #flashes yellow when stopped in dark area or potential traffic hazard
@@ -35,15 +41,15 @@ class flashlight:
     
     
     def lightControls(self, ctrl):
-        if ctrl == 11:
+        if ctrl == 21:
             self.on()
-        elif ctrl == 12:
+        elif ctrl == 22:
             self.off()
-        elif ctrl == 13:
+        elif ctrl == 23:
             self.flash()
-        elif ctrl == 14:
+        elif ctrl == 24:
             self.emergencyLigts()
-        elif ctrl == 15:
+        elif ctrl == 25:
             self.medicalLights()
         else:
             print("Ctrl not recognized")
