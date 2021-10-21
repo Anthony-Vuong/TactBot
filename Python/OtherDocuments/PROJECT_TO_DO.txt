@@ -1,0 +1,8 @@
+1. Upload App to Phone - DONE
+2. Connect to Raspberry Pi - IN PROGRESS
+3. Test Connectivity - TBD
+
+- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
