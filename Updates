@@ -151,3 +151,5 @@ Future plans:
 ✔️09/30/2021: Writing up some module for light feature. New IDEA: Add a light detecting system - LDR! Switching from Duracell AA batteries to Lipo batteries might be a good idea - since they are light(6 AA batteries + battery pack = 312 grams < 4 lipo = 42grams); but can we connect them in series?
 
 ✔️09/30/2021: Rethinking about Arducam multi cam adapter. Possible with mutlip pi zeros? Want to include a zoom lens in the mix.
+
+✔️10/20/2021: New C++ implementation for V2.0.0
