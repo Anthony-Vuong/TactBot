@@ -153,3 +153,5 @@ Future plans:
 ✔️09/30/2021: Rethinking about Arducam multi cam adapter. Possible with mutlip pi zeros? Want to include a zoom lens in the mix.
 
 ✔️10/20/2021: New C++ implementation for V2.0.0
+
+✔️10/23/2021: Using pigpio C++ library for new Software on RPI
