@@ -154,4 +154,6 @@ Future plans:
 
 ✔️10/20/2021: New C++ implementation for V2.0.0
 
-✔️10/23/2021: Using pigpio C++ library for new Software on RPI
+✔️10/26/2021: Motor C++ files added - not yet tested.
+
+✔️10/23/2021:
