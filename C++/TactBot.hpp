@@ -16,6 +16,9 @@ private:
 public:
     TactBot(Rover r, Turret t);
     ~TactBot();
+    void display_alert_status() const;
+    const void rover_controls();
+    const void turret_controls();
 
 };
 
